@@ -12,6 +12,11 @@ class Category extends Model
 
     protected $fillable = ['name', 'slug'];
 
+    // metodo para retornar el slug de la categoria y no su id
+    public function getRouteKeyName(){
+        return 'slug';
+    }
+
     // relacion uno a muchos
     public function products(){
         return $this->hasMany(Product::class);

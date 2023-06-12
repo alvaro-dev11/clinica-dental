@@ -3,7 +3,10 @@
 @section('title', 'Panel de control')
 
 @section('content_header')
-    <h1>Lista de categorias</h1>
+
+    <a href="{{ route('admin.proveedores.create') }}" class="btn btn-secondary btn-sm float-right">Crear nuevo proveedor</a>
+
+    <h1>Lista de proveedores</h1>
 @stop
 
 @section('content')
@@ -17,29 +20,29 @@
 
     <div class="card">
 
-        <div class="card-header">
-            <a href="{{ route('admin.categories.create') }}" class="btn btn-secondary">Crear nueva categoria</a>
-        </div>
-
         <div class="card-body">
             <table class="table table-striped">
                 <thead>
                     <tr>
                         <th>ID</th>
                         <th>Nombre</th>
+                        <th>Contácto</th>
+                        <th>Celular</th>
                         <th colspan="2"></th>
                     </tr>
                 </thead>
 
                 <tbody>
-                    @foreach ($categories as $category)
+                    @foreach ($proveedores as $proveedore)
                         <tr>
-                            <td>{{ $category->id }}</td>
-                            <td>{{ $category->name }}</td>
-                            <td width="10px"><a href="{{ route('admin.categories.edit', $category) }}"
+                            <td>{{ $proveedore->id }}</td>
+                            <td>{{ $proveedore->name }}</td>
+                            <td>{{ $proveedore->contacto }}</td>
+                            <td>{{ $proveedore->phone }}</td>
+                            <td width="10px"><a href="{{ route('admin.proveedores.edit', $proveedore) }}"
                                     class="btn btn-primary btn-sm">Editar</a></td>
                             <td width="10px">
-                                <form action="{{ route('admin.categories.destroy', $category) }}" method="POST">
+                                <form action="{{ route('admin.proveedores.destroy', $proveedore) }}" method="POST">
                                     @csrf
                                     @method('delete')
 
@@ -52,14 +55,4 @@
             </table>
         </div>
     </div>
-@stop
-
-@section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
-@stop
-
-@section('js')
-    <script>
-        console.log('Hi!');
-    </script>
 @stop

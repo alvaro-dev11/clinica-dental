@@ -4,7 +4,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-
+// Ruta para la página web (Ruta de inicio)
 Route::get('/', [CategoryController::class, 'index'])->name('webClinica.index');
 
 Route::get('/dashboard', function () {
