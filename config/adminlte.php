@@ -329,6 +329,11 @@ return [
             'icon' => 'fab fa-fw fa-buffer',
         ],
         [
+            'text' => 'Odontologo',
+            'route'  => 'admin.odontologo.index',
+            'icon' => 'fab fa-fw fa-buffer',
+        ],
+        [
             'text' => 'change_password',
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
