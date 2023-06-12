@@ -16,7 +16,7 @@
                 {!! Form::label('name', 'Nombre') !!}
                 {!! Form::text('name', $odontologo->nombre, [
                     'class' => 'form-control',
-                    'placeholder' => 'Ingrese el nombre del odontologo',
+                    'placeholder' => 'Ingrese el nombre del odontológo',
                 ]) !!}
             </div>
             <div class="form-group">
