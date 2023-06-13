@@ -10,6 +10,8 @@ class Proveedor extends Model
 {
     use HasFactory;
 
+    protected $perPage=20;
+
     // determinando que campos de la tabla proveedor pueden añadirse
     // por asignacion masiva
     protected $fillable = ['name', 'contacto', 'phone'];
@@ -21,6 +23,6 @@ class Proveedor extends Model
     // relacion de uno a muchos
     public function product()
     {
-        return $this->hasMany(Product::class);
+        return $this->hasMany(Product::class, 'proveedor_id', 'id');
     }
 }

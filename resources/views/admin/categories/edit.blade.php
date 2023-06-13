@@ -50,16 +50,6 @@
 @section('js')
 
     <script src="{{ asset('vendor/jQuery-Plugin-stringToSlug-1.3/jquery.stringToSlug.min') }}"></script>
-
-    {{-- <script>
-        $(document).ready(function() {
-            $("#name").stringToSlug({
-                setEvents: 'keyup keydown blur',
-                getPut: '#slug',
-                space: '-'
-            });
-        });
-    </script> --}}
     <script>
         $(document).ready(function() {
             $("#name").on('input', function() {

@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    
+
 
     <!-- JQUERY -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -23,6 +25,8 @@
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/css/main.css', 'resources/css/about.css', 'resources/css/contact.css', 'resources/css/home.css', 'resources/css/owl.carousel.min.css', 'resources/css/owl.theme.default.min.css', 'resources/css/responsive.css', 'resources/css/swiper-bundle.min.css', 'resources/css/testimonials.css', 'resources/js/app.js', 'resources/js/main.js', 'resources/js/slider.js', 'resources/js/about-slider.js', 'resources/js/testimonials-slider.js', 'resources/js/owl.carousel.min.js', 'resources/js/swiper-bundle.min.js'])
+
+    @livewireStyles
 </head>
 
 <body class="font-sans antialiased">
@@ -36,6 +40,14 @@
             {{ $slot }}
         </main>
     </div>
+    
+    {{-- SWEETALERT --}}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    @livewireScripts
+    
 </body>
+
+
 
 </html>
