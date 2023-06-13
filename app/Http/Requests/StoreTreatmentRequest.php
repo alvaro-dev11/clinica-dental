@@ -11,7 +11,7 @@ class StoreTreatmentRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,8 @@ class StoreTreatmentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => ['required', 'string', 'max:100', 'unique:treatments'],
+            'price' => ['required', 'numeric', 'min:0', 'max:999.99'],
         ];
     }
 }
