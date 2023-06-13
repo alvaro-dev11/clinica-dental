@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\PatientController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\TreatmentController;
 use App\Http\Controllers\Admin\UserController;
 
 Route::get('', [HomeController::class, 'index'])->middleware('can:admin.home')->name('admin.home');
@@ -17,4 +18,4 @@ Route::resource('products', ProductController::class)->names('admin.products');
 
 Route::resource('patients', PatientController::class)->names('admin.patients');
 
-Route::resource('treatments', RoleController::class)->names('admin.treatments');
+Route::resource('treatments', TreatmentController::class)->names('admin.treatments');
