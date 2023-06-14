@@ -2,7 +2,7 @@
     <div class="card">
 
         <div class="card-header">
-            <input wire:model="search" class="form-control" placeholder="Ingrese el nombre o correo del usuario">
+            <input type="text" wire:model="search" class="form-control" placeholder="Ingrese el nombre o correo del usuario">
         </div>
 
         @if ($users->count())
@@ -20,11 +20,11 @@
                     <tbody>
                         @foreach ($users as $user)
                             <tr>
-                                <td>{{ user->id }}</td>
-                                <td>{{ user->name }}</td>
-                                <td>{{ user->email }}</td>
+                                <td>{{ $user->id }}</td>
+                                <td>{{ $user->name }}</td>
+                                <td>{{ $user->email }}</td>
                                 <td width="10px">
-                                    <a class="btn btn-primary" href="{{ route('admin.users.edit', $user) }}"></a>
+                                    <a class="btn btn-primary" href="{{ route('admin.users.edit', $user) }}">Editar</a>
                                 </td>
                             </tr>
                         @endforeach

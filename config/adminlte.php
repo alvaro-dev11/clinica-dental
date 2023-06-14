@@ -316,22 +316,26 @@ return [
             'text'        => 'Dashboard',
             'route'         => 'admin.home',
             'icon'        => 'fas fa-tachometer-alt fa-fw',
+            'can'=>'admin.home'
         ],
         [
             'text'        => 'Usuarios',
-            'url'         => 'admin.users.index',
+            'route'         => 'admin.users.index',
             'icon'        => 'fas fa-users fa-fw',
+            'can'=>'admin.users.index'
         ],
         ['header' => 'ADMINISTRADOR'],
         [
             'text' => 'Categorias',
             'route'  => 'admin.categories.index',
             'icon' => 'fab fa-fw fa-buffer',
+            'can'=>'admin.categories.index'
         ],
         [
             'text' => 'Proveedores',
             'route'  => 'admin.proveedores.index',
             'icon' => 'fas fa-user-friends fa-fw',
+            'can'=>'admin.proveedores.index'
         ],
         // [
         //     'text'    => 'multilevel',
@@ -376,11 +380,13 @@ return [
             'text'       => 'Lista de productos',
             'route'        => 'admin.products.index',
             'icon' => 'fas fa-box fa-fw',
+            'can'=>'admin.products.index'
         ],
         [
             'text'       => 'Crear nuevo producto',
             'route'        => 'admin.products.create',
             'icon' => 'fab fa-dropbox fa-fw',
+            'can'=>'admin.products.create'
         ],
         // [
         //     'text'       => 'information',

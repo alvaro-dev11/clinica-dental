@@ -1,5 +1,7 @@
 <?php
 
+// RUTAS PARA EL ADMINISTRADOR
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\HomeController;
@@ -10,7 +12,8 @@ use App\Http\Controllers\Admin\UserController;
 
 Route::get('',[HomeController::class, 'index'])->middleware('can:admin.home')->name('admin.home');
 
-Route::resource('users',UserController::class)->only('index','edit','update')->names('admin.users');
+// Ruta para los usuarios
+Route::resource('users',UserController::class)->only(['index','edit','update'])->names('admin.users');
 
 // Ruta para las categorias
 Route::resource('categories',CategoryController::class)->names('admin.categories');
