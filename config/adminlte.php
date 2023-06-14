@@ -388,6 +388,13 @@ return [
             'icon' => 'fab fa-dropbox fa-fw',
             'can'=>'admin.products.create'
         ],
+        ['header' => 'OPCIONES DEL TRATAMIENTO'],
+        [
+            'text'       => 'Lista de tratamientos',
+            'route'        => 'admin.treatments.index',
+            'icon' => 'fas fa-box fa-fw',
+            // 'can'=>'admin.products.index'
+        ],
         // [
         //     'text'       => 'information',
         //     'icon_color' => 'cyan',
