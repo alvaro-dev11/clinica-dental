@@ -31,15 +31,18 @@ class OdontologoController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
         try {
             $odontologo = new Odontologo;
             $odontologo->nombre = $request->name;
             $odontologo->especialidad = $request->especialidad;
-            $odontologo->activo = 'activo';
+            $odontologo->activo = $request->activo;
             $odontologo->dni = $request->dni;
             $odontologo->save();
             return redirect()->route('admin.odontologo.index');
         } catch (\Throwable $th) {
+            dd($th);
+
             return redirect()->route('admin.odontologo.create');
         }
     }
@@ -70,12 +73,13 @@ class OdontologoController extends Controller
             $odontologo = Odontologo::findOrFail($id);
             $odontologo->nombre = $request->name;
             $odontologo->especialidad = $request->especialidad;
-            $odontologo->activo = 'activo';
+            $odontologo->activo = $request->activo;
             $odontologo->dni = $request->dni;
             $odontologo->update();
             return redirect()->route('admin.odontologo.index');
         } catch (\Throwable $th) {
-            return redirect()->route('admin.odontologo.create');
+            dd($th);
+            return redirect()->route('admin.odontologo.update');
         }
     }
 

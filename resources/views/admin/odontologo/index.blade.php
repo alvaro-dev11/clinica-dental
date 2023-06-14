@@ -21,6 +21,7 @@
                         <th>Nombre</th>
                         <th>Especialidad</th>
                         <th>DNI</th>
+                        <th>Estado</th>
                         <th colspan="2"></th>
                     </tr>
                 </thead>
@@ -32,6 +33,7 @@
                             <td>{{ $odontologo->nombre }}</td>
                             <td>{{ $odontologo->especialidad }}</td>
                             <td>{{ $odontologo->dni }}</td>
+                            <td>{{ $odontologo->activo }}</td>
                             <td width="10px"><a href="{{ route('admin.odontologo.edit', $odontologo) }}"
                                     class="btn btn-primary btn-sm">Editar</a></td>
                             <td width="10px">

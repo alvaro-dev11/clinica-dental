@@ -25,6 +25,14 @@
                 ]) !!}
             </div>
             <div class="form-group">
+                {!! Form::label('activo', 'Activo') !!}
+                <select class="form-control" name="activo">
+                    <option value="Activo">Activo</option>
+                    <option value="Inactivo">Inactivo</option>
+
+                </select>
+            </div>
+            <div class="form-group">
                 {!! Form::label('dni', 'DNI') !!}
                 {!! Form::text('dni', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el DNI del odontologo']) !!}
             </div>
