@@ -1,5 +1,5 @@
 <div>
-    {{-- mostrando la alerta de sesion --}}
+    {{-- mostrando la alerta de sesion
     @if (session('info'))
         <div class="alert alert-success">
             <strong>{{ session('info') }}</strong>
@@ -72,5 +72,5 @@
                 <strong>No hay ningún registro</strong>
             </div>
         @endif
-    </div>
+    </div> --}}
 </div>
