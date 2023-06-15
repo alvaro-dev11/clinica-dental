@@ -9,6 +9,14 @@ use Illuminate\Http\Request;
 class ProveedorController extends Controller
 {
 
+    public function __construct(){
+
+        $this->middleware('can:admin.proveedores.index')->only('index');
+        $this->middleware('can:admin.proveedores.create')->only('create','store');
+        $this->middleware('can:admin.proveedores.edit')->only('edit','update');
+        $this->middleware('can:admin.proveedores.destroy')->only('destroy');
+    }
+
     public function index()
     {
         // recuperando todos los proveedores

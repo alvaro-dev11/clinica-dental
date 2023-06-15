@@ -316,13 +316,19 @@ return [
             'text'        => 'Dashboard',
             'route'         => 'admin.home',
             'icon'        => 'fas fa-tachometer-alt fa-fw',
-            'can'=>'admin.home'
+            'can'=>'admin.home' // esto permite mostrar la opcion solo a los que tienen permisos de admin u otro rol
         ],
         [
             'text'        => 'Usuarios',
             'route'         => 'admin.users.index',
             'icon'        => 'fas fa-users fa-fw',
             'can'=>'admin.users.index'
+        ],
+        [
+            'text'        => 'Roles',
+            'route'         => 'admin.roles.index',
+            'icon'        => 'fas fa-users-cog fa-fw',
+            // 'can'=>'admin.roles.index'
         ],
         ['header' => 'ADMINISTRADOR'],
         [
@@ -393,7 +399,7 @@ return [
             'text'       => 'Lista de tratamientos',
             'route'        => 'admin.treatments.index',
             'icon' => 'fas fa-box fa-fw',
-            // 'can'=>'admin.products.index'
+            'can'=>'admin.treatments.index'
         ],
         // [
         //     'text'       => 'information',

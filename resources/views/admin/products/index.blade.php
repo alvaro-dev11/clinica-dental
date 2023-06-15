@@ -3,14 +3,16 @@
 @section('title', 'Panel de control')
 
 @section('css')
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.4.1/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.4.1/css/responsive.bootstrap5.min.css">
 @endsection
 
 @section('content_header')
 
-    <a href="{{ route('admin.products.create') }}" class="btn btn-secondary btn-sm float-right">Crear nuevo producto</a>
+    @can('admin.products.create')
+        <a href="{{ route('admin.products.create') }}" class="btn btn-secondary btn-sm float-right">Crear nuevo producto</a>
+    @endcan
 
     <h1>Lista de productos</h1>
 @stop
@@ -44,8 +46,15 @@
                         <th class="text-uppercase">Imagen</th>
                         <th class="text-uppercase">Categoria</th>
                         <th class="text-uppercase">Proveedor</th>
-                        <th class="text-uppercase">Editar</th>
-                        <th class="text-uppercase">Eliminar</th>
+                        @if ('admin.products.index')
+                            <th class="text-uppercase">Editar</th>
+                            <th class="text-uppercase">Eliminar</th>
+                        @else
+                            @can('admin.products.index')
+                                <th class="text-uppercase"></th>
+                                <th class="text-uppercase"></th>
+                            @endcan
+                        @endif
                     </tr>
                 </thead>
 
@@ -68,17 +77,23 @@
                             </td>
                             <td>{{ $product->category->name }}</td>
                             <td>{{ $product->proveedor->name }}</td>
-                            <td width="10px" class="text-center"><a href="{{ route('admin.products.edit', $product) }}"
-                                    class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a></td>
+                            <td width="10px" class="text-center">
+                                @can('admin.products.edit')
+                                    <a href="{{ route('admin.products.edit', $product) }}" class="btn btn-warning btn-sm"><i
+                                            class="fas fa-edit"></i></a>
+                                @endcan
+                            </td>
                             <td width="10px">
-                                <form action="{{ route('admin.products.destroy', $product) }}" method="POST"
-                                    class="formEliminar text-center">
-                                    @csrf
-                                    @method('delete')
+                                @can('admin.products.destroy')
+                                    <form action="{{ route('admin.products.destroy', $product) }}" method="POST"
+                                        class="formEliminar text-center">
+                                        @csrf
+                                        @method('delete')
 
-                                    <button type="submit" class="btn btn-danger btn-sm"><i
-                                        class="fas fa-trash"></i></button>
-                                </form>
+                                        <button type="submit" class="btn btn-danger btn-sm"><i
+                                                class="fas fa-trash"></i></button>
+                                    </form>
+                                @endcan
                             </td>
                         </tr>
                     @endforeach
@@ -91,21 +106,21 @@
             {{-- <div class="card-footer">
                 {{ $products->links() }}
             </div> --}}
-    {{-- @else
+        {{-- @else
         <div class="card-body">
             <strong>No hay ningún registro</strong>
         </div>
         @endif --}}
-    </div> 
+    </div>
 
 @stop
 
 
 @section('js')
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.4.1/js/dataTables.responsive.min.js"></script>
-    <script src="https://cdn.datatables.net/responsive/2.4.1/js/responsive.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.4.1/js/responsive.bootstrap5.min.js"></script>
     <script>
         $(document).ready(function() {
             $('#productos').DataTable({

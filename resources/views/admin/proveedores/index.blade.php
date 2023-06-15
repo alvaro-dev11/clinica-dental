@@ -2,6 +2,12 @@
 
 @section('title', 'Panel de control')
 
+@section('css')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.4.1/css/responsive.bootstrap5.min.css">
+@endsection
+
 @section('content_header')
 
     <a href="{{ route('admin.proveedores.create') }}" class="btn btn-secondary btn-sm float-right">Crear nuevo proveedor</a>
@@ -21,14 +27,22 @@
     <div class="card">
 
         <div class="card-body">
-            <table class="table table-striped">
+            <table id="proveedores" class="table table-striped">
                 <thead>
                     <tr>
                         <th>ID</th>
                         <th>Nombre</th>
                         <th>Contácto</th>
                         <th>Celular</th>
-                        <th colspan="2"></th>
+                        @if ('admin.proveedores.index')
+                            <th class="text-uppercase">Editar</th>
+                            <th class="text-uppercase">Eliminar</th>
+                        @else
+                            @can('admin.proveedores.index')
+                                <th class="text-uppercase"></th>
+                                <th class="text-uppercase"></th>
+                            @endcan
+                        @endif
                     </tr>
                 </thead>
 
@@ -39,14 +53,21 @@
                             <td>{{ $proveedore->name }}</td>
                             <td>{{ $proveedore->contacto }}</td>
                             <td>{{ $proveedore->phone }}</td>
-                            <td width="10px"><a href="{{ route('admin.proveedores.edit', $proveedore) }}"
-                                    class="btn btn-primary btn-sm">Editar</a></td>
+                            <td width="10px" class="text-center">
+                                @can('admin.proveedores.edit')
+                                    <a href="{{ route('admin.proveedores.edit', $proveedore) }}"
+                                        class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
+                                @endcan
+                            </td>
                             <td width="10px">
-                                <form action="{{ route('admin.proveedores.destroy', $proveedore) }}" method="POST">
+                                @can('admin.proveedores.destroy')
+                                @endcan
+                                <form action="{{ route('admin.proveedores.destroy', $proveedore) }}" method="POST" class="text-center">
                                     @csrf
                                     @method('delete')
 
-                                    <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                                    <button type="submit" class="btn btn-danger btn-sm"><i
+                                            class="fas fa-trash"></i></button>
                                 </form>
                             </td>
                         </tr>
@@ -56,3 +77,22 @@
         </div>
     </div>
 @stop
+
+
+@section('js')
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.4.1/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.4.1/js/responsive.bootstrap5.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#proveedores').DataTable({
+                responsive: true,
+                autoWidth: false,
+                language: {
+                    url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/es-ES.json',
+                },
+            });
+        });
+    </script>
+@endsection

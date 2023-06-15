@@ -3,9 +3,9 @@
 @section('title', 'Panel de control')
 
 @section('css')
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.4.1/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.4.1/css/responsive.bootstrap5.min.css">
 @endsection
 
 @section('content_header')
@@ -33,8 +33,15 @@
                         <th>ID</th>
                         <th>Nombre</th>
                         <th>Precio</th>
-                        <th>Editar</th>
-                        <th>Eliminar</th>
+                        @if ('admin.treatments.index')
+                            <th class="text-uppercase">Editar</th>
+                            <th class="text-uppercase">Eliminar</th>
+                        @else
+                            @can('admin.treatments.index')
+                                <th class="text-uppercase"></th>
+                                <th class="text-uppercase"></th>
+                            @endcan
+                        @endif
                     </tr>
                 </thead>
 
@@ -46,16 +53,23 @@
                             <td>{{ $treatment->price }}</td>
 
 
-                            <td width="10px" class="text-center"><a href="{{ route('admin.treatments.edit', $treatment) }}"
-                                    class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a></td>
+                            <td width="10px" class="text-center">
+                                @can('admin.treatments.edit')
+                                    <a href="{{ route('admin.treatments.edit', $treatment) }}" class="btn btn-warning btn-sm"><i
+                                            class="fas fa-edit"></i></a>
+                                @endcan
+                            </td>
                             <td width="10px">
-                                <form action="{{ route('admin.treatments.destroy', $treatment) }}" method="POST" class="text-center">
-                                    @csrf
-                                    @method('delete')
+                                @can('admin.treatments.destroy')
+                                    <form action="{{ route('admin.treatments.destroy', $treatment) }}" method="POST"
+                                        class="text-center">
+                                        @csrf
+                                        @method('delete')
 
-                                    <button type="submit" class="btn btn-danger btn-sm"><i
-                                            class="fas fa-trash"></i></button>
-                                </form>
+                                        <button type="submit" class="btn btn-danger btn-sm"><i
+                                                class="fas fa-trash"></i></button>
+                                    </form>
+                                @endcan
                             </td>
                         </tr>
                     @endforeach
@@ -67,9 +81,9 @@
 
 @section('js')
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.4.1/js/dataTables.responsive.min.js"></script>
-    <script src="https://cdn.datatables.net/responsive/2.4.1/js/responsive.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.4.1/js/responsive.bootstrap5.min.js"></script>
     <script>
         $(document).ready(function() {
             $('#tratamientos').DataTable({

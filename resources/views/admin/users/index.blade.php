@@ -7,9 +7,9 @@
 @stop
 
 @section('css')
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.4.1/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.4.1/css/responsive.bootstrap5.min.css">
 @endsection
 
 @section('content')
@@ -21,7 +21,14 @@
                         <th>ID</th>
                         <th>NOMBRE</th>
                         <th>EMAIL</th>
-                        <th>EDITAR</th>
+                        @if ('admin.users.index')
+                            <th class="text-uppercase">Editar</th>
+                        @else
+                            @can('admin.users.index')
+                                <th class="text-uppercase"></th>
+                                <th class="text-uppercase"></th>
+                            @endcan
+                        @endif
                     </tr>
                 </thead>
 
@@ -32,8 +39,10 @@
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>
                             <td width="10px" class="text-center">
-                                <a class="btn btn-warning" href="{{ route('admin.users.edit', $user) }}"><i
-                                        class="fas fa-edit"></i></a>
+                                @can('admin.users.edit')
+                                    <a class="btn btn-warning" href="{{ route('admin.users.edit', $user) }}"><i
+                                            class="fas fa-edit"></i></a>
+                                @endcan
                             </td>
                         </tr>
                     @endforeach
@@ -45,9 +54,9 @@
 
 @section('js')
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.4.1/js/dataTables.responsive.min.js"></script>
-    <script src="https://cdn.datatables.net/responsive/2.4.1/js/responsive.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.4.1/js/responsive.bootstrap5.min.js"></script>
     <script>
         $(document).ready(function() {
             $('#usuarios').DataTable({

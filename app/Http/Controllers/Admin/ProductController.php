@@ -11,6 +11,13 @@ use App\Models\Proveedor;
 
 class ProductController extends Controller
 {
+    public function __construct(){
+
+        $this->middleware('can:admin.products.index')->only('index');
+        $this->middleware('can:admin.products.create')->only('create','store');
+        $this->middleware('can:admin.products.edit')->only('edit','update');
+        $this->middleware('can:admin.products.destroy')->only('destroy');
+    }
 
     public function index()
     {
