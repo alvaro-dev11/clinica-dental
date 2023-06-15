@@ -150,7 +150,7 @@ return [
 
     'layout_topnav' => null,
     'layout_boxed' => null,
-    'layout_fixed_sidebar' => null,
+    'layout_fixed_sidebar' => true,
     'layout_fixed_navbar' => null,
     'layout_fixed_footer' => null,
     'layout_dark_mode' => null,
@@ -316,77 +316,96 @@ return [
             'text'        => 'Dashboard',
             'route'         => 'admin.home',
             'icon'        => 'fas fa-tachometer-alt fa-fw',
+            'can'=>'admin.home' // esto permite mostrar la opcion solo a los que tienen permisos de admin u otro rol
         ],
         [
             'text'        => 'Usuarios',
-            'url'         => 'admin.users.index',
+            'route'         => 'admin.users.index',
             'icon'        => 'fas fa-users fa-fw',
+            'can'=>'admin.users.index'
+        ],
+        [
+            'text'        => 'Roles',
+            'route'         => 'admin.roles.index',
+            'icon'        => 'fas fa-users-cog fa-fw',
+            // 'can'=>'admin.roles.index'
         ],
         ['header' => 'ADMINISTRADOR'],
         [
             'text' => 'Categorias',
             'route'  => 'admin.categories.index',
             'icon' => 'fab fa-fw fa-buffer',
+            'can'=>'admin.categories.index'
         ],
         [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
+            'text' => 'Proveedores',
+            'route'  => 'admin.proveedores.index',
+            'icon' => 'fas fa-user-friends fa-fw',
+            'can'=>'admin.proveedores.index'
+        ],
+        // [
+        //     'text'    => 'multilevel',
+        //     'icon'    => 'fas fa-fw fa-share',
+        //     'submenu' => [
+        //         [
+        //             'text' => 'level_one',
+        //             'url'  => '#',
+        //         ],
+        //         [
+        //             'text'    => 'level_one',
+        //             'url'     => '#',
+        //             'submenu' => [
+        //                 [
+        //                     'text' => 'level_two',
+        //                     'url'  => '#',
+        //                 ],
+        //                 [
+        //                     'text'    => 'level_two',
+        //                     'url'     => '#',
+        //                     'submenu' => [
+        //                         [
+        //                             'text' => 'level_three',
+        //                             'url'  => '#',
+        //                         ],
+        //                         [
+        //                             'text' => 'level_three',
+        //                             'url'  => '#',
+        //                         ],
+        //                     ],
+        //                 ],
+        //             ],
+        //         ],
+        //         [
+        //             'text' => 'level_one',
+        //             'url'  => '#',
+        //         ],
+        //     ],
+        // ],
+        ['header' => 'OPCIONES DEL PRODUCTO'],
+        [
+            'text'       => 'Lista de productos',
+            'route'        => 'admin.products.index',
+            'icon' => 'fas fa-box fa-fw',
+            'can'=>'admin.products.index'
         ],
         [
-            'text'    => 'multilevel',
-            'icon'    => 'fas fa-fw fa-share',
-            'submenu' => [
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-                [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-            ],
+            'text'       => 'Crear nuevo producto',
+            'route'        => 'admin.products.create',
+            'icon' => 'fab fa-dropbox fa-fw',
+            'can'=>'admin.products.create'
         ],
-        ['header' => 'labels'],
+        ['header' => 'OPCIONES DEL TRATAMIENTO'],
         [
-            'text'       => 'important',
-            'icon_color' => 'red',
-            'url'        => '#',
+            'text'       => 'Lista de tratamientos',
+            'route'        => 'admin.treatments.index',
+            'icon' => 'fas fa-box fa-fw',
+            'can'=>'admin.treatments.index'
         ],
-        [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'information',
-            'icon_color' => 'cyan',
-            'url'        => '#',
-        ],
+        // [
+        //     'text'       => 'information',
+        //     'icon_color' => 'cyan',
+        //     'url'        => '#',
+        // ],
     ],
 
     /*
@@ -541,5 +560,5 @@ return [
     |
     */
 
-    'livewire' => false,
+    'livewire' => true,
 ];

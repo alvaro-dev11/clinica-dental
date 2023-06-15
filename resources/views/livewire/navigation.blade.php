@@ -76,10 +76,19 @@
                             class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
                             role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
                             <!-- Active: "bg-gray-100", Not Active: "" -->
+
+                            {{-- BOTON PARA IR AL PERIFL DEL USUARIO --}}
                             <a href="{{ route('profile.edit') }}" class="block px-4 py-2 text-sm text-gray-700"
                                 role="menuitem" tabindex="-1" id="user-menu-item-0">Tu Perfil</a>
-                            <a href="{{ route('admin.home') }}" class="block px-4 py-2 text-sm text-gray-700"
-                                role="menuitem" tabindex="-1" id="user-menu-item-0">Dashboard</a>
+
+                            {{-- este boton solo se muestra a los que tienen permiso para ir al dashboard --}}
+                            @can('admin.home')
+                                {{-- BOTON PARA IR AL PERIFL DEL DASHBOARD --}}
+                                <a href="{{ route('admin.home') }}" class="block px-4 py-2 text-sm text-gray-700"
+                                    role="menuitem" tabindex="-1" id="user-menu-item-0">Dashboard</a>
+                            @endcan
+
+                            {{-- BOTON PARA CERRAR SESION --}}
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
                                 <a href="{{ route('logout') }}" class="block px-4 py-2 text-sm text-gray-700"
@@ -110,7 +119,7 @@
                 aria-current="page">Dashboard</a>
             @foreach ($categories as $category)
                 <a href="#"
-                    class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">{{$category->name}}</a>
+                    class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">{{ $category->name }}</a>
             @endforeach
 
         </div>
