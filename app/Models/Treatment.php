@@ -13,4 +13,9 @@ class Treatment extends Model
         'name',
         'price'
     ];
+
+     // relacion de uno a uno
+     public function historial(){
+        return $this->hasOne(Historial::class);
+    }
 }

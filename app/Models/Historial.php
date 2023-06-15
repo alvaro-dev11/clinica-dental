@@ -12,4 +12,8 @@ class Historial extends Model
     public function patient(){
         return $this->belongsTo(Patient::class);
     }
+
+    public function treatment(){
+        return $this->belongsTo(Treatment::class);
+    }
 }

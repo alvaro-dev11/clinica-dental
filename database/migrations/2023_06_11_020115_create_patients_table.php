@@ -17,10 +17,7 @@ return new class extends Migration
             $table->string('phone');
             $table->string('email');
 
-            $table->unsignedBigInteger('historial_id');
-
-            $table->foreign('historial_id')->references('id')->on('historials')->onDelete('cascade');
-
+      
             $table->timestamps();
         });
     }

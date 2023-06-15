@@ -11,6 +11,12 @@ class Patient extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'phone',
+        'email',
+    ];
+
     // relacion de uno a muchos
     public function factura(){
         return $this->hasMany(Factura::class);
