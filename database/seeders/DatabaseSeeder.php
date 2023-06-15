@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use App\Models\Category;
+use App\Models\Historial;
 use App\Models\Product;
 use App\Models\Proveedor;
 use Illuminate\Database\Seeder;
@@ -32,6 +33,8 @@ class DatabaseSeeder extends Seeder
         $this->call(UserSeeder::class);
         Category::factory(4)->create();
         Proveedor::factory(4)->create();
+        Historial::factory(4)->create();
         $this->call(ProductSeeder::class);
+        $this->call(PatientSeeder::class);
     }
 }

@@ -1,11 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Models\Patient;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Barryvdh\DomPDF\Facade\Pdf;
+use App\Models\Cita;
 
 class PacienteController extends Controller
 {
@@ -82,7 +83,7 @@ class PacienteController extends Controller
     }
     public function registrarPaciente(Request $request)
     {
-        $validator = Validator::make($request->all(), [
+        /*$validator = Validator::make($request->all(), [
             'dni' => 'required|string',
             'nombre' => 'required|string',
             'apellido_paterno' => 'required|string',
@@ -113,7 +114,7 @@ class PacienteController extends Controller
         $paciente->estado_civil = $request->input('estado_civil');
         $paciente->fecha_registro = $request->input('fecha_registro');
         $paciente->user_id = $request->input('user_id');
-        $paciente->save();
+        $paciente->save();*/
     }
     public function editarDatos(Request $request)
     {
@@ -168,4 +169,21 @@ class PacienteController extends Controller
             ]);
         }
     }
+
+    public function reportePDF(){
+        $pacientes=Patient::all();
+        $pdf = Pdf::loadView('paciente.paciente', compact('pacientes'));
+        return $pdf->stream();
+    }
+    public function buscarCita(Request $request)
+    {
+        $buscarCita = $request->input('search');
+        
+        $cita = Cita::where('estado_cita', 'LIKE', "%$buscarCita%")
+                    ->orWhere('fecha', 'LIKE', "%$buscarCita%")
+                    ->get();
+
+        return view('search.index', compact('cita'));
+    }
+
 }
