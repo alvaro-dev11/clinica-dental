@@ -34,3 +34,5 @@ Route::resource('patients', PatientController::class)->names('admin.patients');
 
 // Ruta para los tratamientos
 Route::resource('treatments', TreatmentController::class)->names('admin.treatments');
+
+

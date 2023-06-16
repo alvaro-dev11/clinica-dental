@@ -401,6 +401,13 @@ return [
             'icon' => 'fas fa-box fa-fw',
             'can'=>'admin.treatments.index'
         ],
+        ['header' => 'OPCIONES DEL PACIENTE'],
+        [
+            'text'       => 'Lista de pacientes',
+            'route'        => 'admin.patients.index',
+            'icon' => 'fas fa-box fa-fw',
+            'can'=>'admin.patients.index'
+        ],
         // [
         //     'text'       => 'information',
         //     'icon_color' => 'cyan',

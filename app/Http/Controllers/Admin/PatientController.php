@@ -3,16 +3,27 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\PatientRequest;
+use App\Models\Patient;
 use Illuminate\Http\Request;
 
 class PatientController extends Controller
 {
+    public function __construct(){
+
+        $this->middleware('can:admin.patients.index')->only('index');
+        $this->middleware('can:admin.patients.create')->only('create', 'store');
+        $this->middleware('can:admin.treatments.edit')->only('edit','update');
+
+    }
+    
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $patients = Patient::all();
+        return view('admin.patients.index', compact('patients'));
     }
 
     /**
@@ -20,15 +31,14 @@ class PatientController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.patients.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    
+    public function store(PatientRequest $request)
     {
-        //
+        $patient = Patient::create($request->all());
+        return redirect()->route('admin.patients.edit', $patient)->with('info', 'El paciente se creó con éxito');
     }
 
     /**
@@ -42,17 +52,16 @@ class PatientController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Patient $patient)
     {
-        //
+        return view('admin.patients.edit', compact('patient'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    
+    public function update(PatientRequest $request, Patient $patient)
     {
-        //
+        $patient->update($request->all());
+        return redirect()->route('admin.patients.edit', $patient)->with('info', 'El paciente se actualizó con éxito');
     }
 
     /**
@@ -60,6 +69,6 @@ class PatientController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        
     }
 }
