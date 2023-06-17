@@ -32,7 +32,6 @@ class DatabaseSeeder extends Seeder
 
         // creando datos falsos
         $this->call(UserSeeder::class);
-        $this->call(PatientSeeder::class);
         Category::factory(4)->create();
         Proveedor::factory(4)->create();
         // $this->call(ProductSeeder::class);
