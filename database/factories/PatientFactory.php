@@ -23,7 +23,6 @@ class PatientFactory extends Factory
             'name' =>$name,
             'phone' =>$this->faker->numberBetween(100000000, 999999999),
             'email'=>$this->faker->unique()->safeEmail,
-            'historial_id'=>Historial::inRandomOrder()->value('id'),
         ];
     }
 }
