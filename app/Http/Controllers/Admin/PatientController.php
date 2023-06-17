@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\PatientRequest;
 use App\Models\Patient;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
+use App\Models\Cita;
+
 
 class PatientController extends Controller
 {
@@ -70,5 +73,20 @@ class PatientController extends Controller
     public function destroy(string $id)
     {
         
+    }
+    public function reportePDF(){
+        $pacientes=Patient::all();
+        $pdf = Pdf::loadView('paciente.paciente', compact('pacientes'));
+        return $pdf->stream();
+    }
+    public function buscarCita(Request $request)
+    {
+        $buscarCita = $request->input('search');
+        
+        $cita = Cita::where('estado_cita', 'LIKE', "%$buscarCita%")
+                    ->orWhere('fecha', 'LIKE', "%$buscarCita%")
+                    ->get();
+
+        return view('search.index', compact('cita'));
     }
 }
