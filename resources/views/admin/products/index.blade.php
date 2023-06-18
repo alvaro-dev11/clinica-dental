@@ -40,8 +40,8 @@
                     <tr>
                         <th>ID</th>
                         <th class="text-uppercase">Nombre</th>
-                        {{-- <th>Slug</th> --}}
                         <th class="text-uppercase">Descripción</th>
+                        <th class="text-uppercase">Stock</th>
                         <th class="text-uppercase">Estado</th>
                         <th class="text-uppercase">Imagen</th>
                         <th class="text-uppercase">Categoria</th>
@@ -61,15 +61,19 @@
                 <tbody>
                     @foreach ($products as $product)
                         <tr>
-                            <td>{{ $product->id }}</td>
+                            <td>{{ $contador }}</td>
                             <td>{{ $product->name }}</td>
-                            {{-- <td>{{ $product->slug }}</td> --}}
-                            <td>{!! $product->description !!}</td>
+                            @if ($product->description=="")
+                                <td>Sin descripción</td>
+                            @else
+                                <td>{!! $product->description !!}</td>
+                            @endif
+                            <td>{!! $product->stock !!}</td>
                             <td>
                                 @if ($product->status == 1)
-                                    Activo
+                                    <span>En stock</span>
                                 @else
-                                    Inactivo
+                                    <span>Agotado</span>
                                 @endif
                             </td>
                             <td>
@@ -96,21 +100,13 @@
                                 @endcan
                             </td>
                         </tr>
+                        @php
+                            $contador++;
+                        @endphp
                     @endforeach
                 </tbody>
             </table>
         </div>
-
-        {{-- @if ($products->count())
-
-            {{-- <div class="card-footer">
-                {{ $products->links() }}
-            </div> --}}
-        {{-- @else
-        <div class="card-body">
-            <strong>No hay ningún registro</strong>
-        </div>
-        @endif --}}
     </div>
 
 @stop

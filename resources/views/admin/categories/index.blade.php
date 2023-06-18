@@ -48,7 +48,7 @@
                 <tbody>
                     @foreach ($categories as $category)
                         <tr>
-                            <td>{{ $category->id }}</td>
+                            <td>{{ $contador }}</td>
                             <td>{{ $category->name }}</td>
                             <td width="10px" class="text-center">
                                 @can('admin.categories.edit')
@@ -69,6 +69,9 @@
                                 @endcan
                             </td>
                         </tr>
+                        @php
+                            $contador++;
+                        @endphp
                     @endforeach
                 </tbody>
             </table>

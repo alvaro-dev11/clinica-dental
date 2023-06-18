@@ -49,7 +49,7 @@
                 <tbody>
                     @foreach ($proveedores as $proveedore)
                         <tr>
-                            <td>{{ $proveedore->id }}</td>
+                            <td>{{ $contador }}</td>
                             <td>{{ $proveedore->name }}</td>
                             <td>{{ $proveedore->contacto }}</td>
                             <td>{{ $proveedore->phone }}</td>
@@ -71,6 +71,9 @@
                                 </form>
                             </td>
                         </tr>
+                        @php
+                            $contador++;
+                        @endphp
                     @endforeach
                 </tbody>
             </table>

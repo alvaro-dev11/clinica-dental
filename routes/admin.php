@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\PatientController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProveedorController;
+use App\Http\Controllers\Admin\PurchaseController;
 use App\Http\Controllers\Admin\TreatmentController;
 use App\Http\Controllers\Admin\UserController;
 
@@ -34,3 +35,9 @@ Route::resource('patients', PatientController::class)->names('admin.patients');
 
 // Ruta para los tratamientos
 Route::resource('treatments', TreatmentController::class)->names('admin.treatments');
+
+// Ruta para las compras
+Route::resource('purchase', PurchaseController::class)->names('admin.purchase');
+
+// Ruta para cambiar el estado de una compra
+Route::post('cambiar-estado/{id}', [PurchaseController::class, 'cambiarEstado'])->name('admin.purchase.cambiar-estado');

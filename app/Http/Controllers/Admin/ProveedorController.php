@@ -21,9 +21,10 @@ class ProveedorController extends Controller
     {
         // recuperando todos los proveedores
         $proveedores = Proveedor::all();
+        $contador=1;
 
         // mostrando la vista principal de los proveedores
-        return view('admin.proveedores.index', compact('proveedores'));
+        return view('admin.proveedores.index', compact('proveedores','contador'));
     }
 
     /**

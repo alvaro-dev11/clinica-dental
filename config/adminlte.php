@@ -328,7 +328,7 @@ return [
             'text'        => 'Roles',
             'route'         => 'admin.roles.index',
             'icon'        => 'fas fa-users-cog fa-fw',
-            // 'can'=>'admin.roles.index'
+            'can'=>'admin.roles.index'
         ],
         ['header' => 'ADMINISTRADOR'],
         [
@@ -342,6 +342,12 @@ return [
             'route'  => 'admin.proveedores.index',
             'icon' => 'fas fa-user-friends fa-fw',
             'can'=>'admin.proveedores.index'
+        ],
+        [
+            'text' => 'Compras',
+            'route'  => 'admin.purchase.index',
+            'icon' => 'fas fa-store fa-fw',
+            'can'=>'admin.purchase.index'
         ],
         // [
         //     'text'    => 'multilevel',

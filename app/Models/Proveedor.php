@@ -10,19 +10,22 @@ class Proveedor extends Model
 {
     use HasFactory;
 
-    protected $perPage=20;
-
     // determinando que campos de la tabla proveedor pueden añadirse
     // por asignacion masiva
-    protected $fillable = ['name', 'contacto', 'phone'];
+    protected $fillable = [
+        'name',
+        'contacto',
+        'phone'
+    ];
 
-    public function getRouteKeyName(){
+    public function getRouteKeyName()
+    {
         return 'name';
     }
 
     // relacion de uno a muchos
     public function product()
     {
-        return $this->hasMany(Product::class, 'proveedor_id', 'id');
+        return $this->hasMany(Product::class);
     }
 }
