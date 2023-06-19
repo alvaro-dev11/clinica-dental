@@ -349,6 +349,12 @@ return [
             'icon' => 'fas fa-store fa-fw',
             'can'=>'admin.purchase.index'
         ],
+        [
+            'text' => 'Servicios',
+            'route'  => 'admin.service.index',
+            'icon' => 'fas fa-praying-hands fa-fw',
+            'can'=>'admin.service.index'
+        ],
         // [
         //     'text'    => 'multilevel',
         //     'icon'    => 'fas fa-fw fa-share',

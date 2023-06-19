@@ -66,5 +66,12 @@ class RoleSeeder extends Seeder
         Permission::create(['name' => 'admin.purchase.index', 'description'=>'Ver lista de compras'])->syncRoles([$role1]);
         Permission::create(['name' => 'admin.purchase.create', 'description'=>'Crear nueva compra'])->syncRoles([$role1]);
         Permission::create(['name' => 'admin.purchase.edit', 'description'=>'Editar compra'])->syncRoles([$role1]);
+
+        // El admin podrá administrar los servicios
+        Permission::create(['name' => 'admin.service.index', 'description'=>'Ver lista de servicios'])->assignRole([$role1]);
+        Permission::create(['name' => 'admin.service.create', 'description'=>'Crear nuevo servicio'])->assignRole([$role1]);
+        Permission::create(['name' => 'admin.service.show', 'description'=>'Ver servicio'])->assignRole([$role1]);
+        Permission::create(['name' => 'admin.service.edit', 'description'=>'Editar servicio'])->assignRole([$role1]);
+        Permission::create(['name' => 'admin.service.destroy', 'description'=>'Eliminar servicio'])->assignRole([$role1]);
     }
 }

@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\ProveedorController;
 use App\Http\Controllers\Admin\PurchaseController;
 use App\Http\Controllers\Admin\TreatmentController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\ServiceController;
 
 Route::get('', [HomeController::class, 'index'])->middleware('can:admin.home')->name('admin.home');
 
@@ -22,6 +23,7 @@ Route::resource('users', UserController::class)->only(['index', 'edit', 'update'
 Route::resource('roles', RoleController::class)->names('admin.roles');
 
 // Ruta para las categorias
+// Usando todos los métodos excepto la de show
 Route::resource('categories', CategoryController::class)->except('show')->names('admin.categories');
 
 // Ruta para los proveedores
@@ -41,3 +43,6 @@ Route::resource('purchase', PurchaseController::class)->names('admin.purchase');
 
 // Ruta para cambiar el estado de una compra
 Route::post('cambiar-estado/{id}', [PurchaseController::class, 'cambiarEstado'])->name('admin.purchase.cambiar-estado');
+
+// Ruta para los servicios
+Route::resource('service', ServiceController::class)->names('admin.service');

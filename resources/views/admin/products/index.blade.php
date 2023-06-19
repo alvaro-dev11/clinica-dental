@@ -77,7 +77,7 @@
                                 @endif
                             </td>
                             <td>
-                                <img src="/imagen/{{ $product->image }}" style="max-width:50px">
+                                <img src="{{ asset('imagen/product/'.$product->image) }}" style="max-width:50px">
                             </td>
                             <td>{{ $product->category->name }}</td>
                             <td>{{ $product->proveedor->name }}</td>

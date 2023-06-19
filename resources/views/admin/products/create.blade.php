@@ -53,17 +53,6 @@
                 @enderror
             </div>
             <div class="row">
-                {{-- <div class="col">
-                    <p class="font-weight-bold">Estado:</p>
-                    <label class="mr-3">
-                        {!! Form::radio('status', 0, true) !!}
-                        Inactivo
-                    </label>
-                    <label>
-                        {!! Form::radio('status', 1) !!}
-                        Activo
-                    </label>
-                </div> --}}
 
                 <div class="col">
                     {!! Form::label('image', 'Imagen:') !!}

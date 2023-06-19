@@ -13,7 +13,6 @@ class ProductController extends Controller
 {
     public function __construct()
     {
-
         $this->middleware('can:admin.products.index')->only('index');
         $this->middleware('can:admin.products.create')->only('create', 'store');
         $this->middleware('can:admin.products.edit')->only('edit', 'update');
@@ -53,7 +52,7 @@ class ProductController extends Controller
         $product = $request->all();
 
         if ($image = $request->file('image')) {
-            $rutaGuardarImg = 'imagen/';
+            $rutaGuardarImg = 'imagen/product/';
             $imagenProducto = date('YmdHis') . "." . $image->getClientOriginalExtension();
             $image->move($rutaGuardarImg, $imagenProducto);
             $product['image'] = "$imagenProducto";
@@ -88,16 +87,27 @@ class ProductController extends Controller
             'category_id' => 'required',
             'proveedor_id' => 'required',
         ]);
-        $prod = $request->all();
-        if ($imagen = $request->file('new_image')) {
-            $rutaGuardarImg = 'imagen/';
-            $imagenProducto = date('YmdHis') . "." . $imagen->getClientOriginalExtension();
-            $imagen->move($rutaGuardarImg, $imagenProducto);
-            $prod['new_image'] = "$imagenProducto";
-        } else {
-            unset($prod['new_image']);
+    
+        $formProduct = $request->except(['new_image']);
+    
+        if ($request->hasFile('new_image')) {
+            $imagen = $request->file('new_image');
+            $rutaGuardarImg = 'imagen/product/';
+            $nuevaImagen = date('YmdHis') . "." . $imagen->getClientOriginalExtension();
+            $imagen->move($rutaGuardarImg, $nuevaImagen);
+            $formProduct['image'] = $nuevaImagen;
+    
+            // Eliminar la imagen anterior si existe
+            if ($product->image) {
+                $rutaImagenAnterior = $rutaGuardarImg . $product->image;
+                if (file_exists($rutaImagenAnterior)) {
+                    unlink($rutaImagenAnterior);
+                }
+            }
         }
-        $product->update($prod);
+    
+        $product->update($formProduct);
+
         return redirect()->route('admin.products.index')->with('info', 'El producto se actualizó exitosamente');
     }
 
@@ -106,7 +116,7 @@ class ProductController extends Controller
     {
         // Eliminar la imagen asociada al producto
         if (!empty($product->image)) {
-            $rutaImagen = 'imagen/' . $product->image;
+            $rutaImagen = 'imagen/product/' . $product->image;
             if (file_exists($rutaImagen)) {
                 unlink($rutaImagen);
             }
