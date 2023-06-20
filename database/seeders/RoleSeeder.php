@@ -73,5 +73,12 @@ class RoleSeeder extends Seeder
         Permission::create(['name' => 'admin.service.show', 'description'=>'Ver servicio'])->assignRole([$role1]);
         Permission::create(['name' => 'admin.service.edit', 'description'=>'Editar servicio'])->assignRole([$role1]);
         Permission::create(['name' => 'admin.service.destroy', 'description'=>'Eliminar servicio'])->assignRole([$role1]);
+
+        // El admin podrá administrar los odontologos
+        Permission::create(['name' => 'admin.odontologo.index', 'description'=>'Ver lista de odontólogos'])->assignRole([$role1]);
+        Permission::create(['name' => 'admin.odontologo.create', 'description'=>'Crear nuevo odontólogo'])->assignRole([$role1]);
+        Permission::create(['name' => 'admin.odontologo.show', 'description'=>'Ver odontólogo'])->assignRole([$role1]);
+        Permission::create(['name' => 'admin.odontologo.edit', 'description'=>'Editar odontólogo'])->assignRole([$role1]);
+        Permission::create(['name' => 'admin.odontologo.destroy', 'description'=>'Eliminar odontólogo'])->assignRole([$role1]);
     }
 }
