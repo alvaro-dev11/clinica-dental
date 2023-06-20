@@ -12,17 +12,29 @@ class Product extends Model
 {
     use HasFactory;
 
-    // relacion de uno a muchos inversa
-    public function category(){
-        return $this->belongsTo(Category::class);
+    protected $fillable = [
+        'name',
+        'slug',
+        'description',
+        'stock',
+        'status',
+        'image',
+        'category_id',
+        'proveedor_id'
+    ];
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
     }
 
-    public function proveedor(){
+    public function category()
+    {
+        return $this->hasOne(Category::class, 'id', 'category_id');
+    }
+
+    public function proveedor()
+    {
         return $this->belongsTo(Proveedor::class);
-    }
-
-    // relacion uno a uno polimorfica
-    public function image(){
-        return $this->morphOne(Image::class, 'imageable');
     }
 }

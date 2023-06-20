@@ -10,13 +10,15 @@ use Spatie\Permission\Models\Role as ModelsRole;
 class UserController extends Controller
 {
     public function __construct(){
+
         $this->middleware('can:admin.users.index')->only('index');
         $this->middleware('can:admin.users.edit')->only('edit','update');
     }
     
     public function index()
     {
-        return view('admin.users.index');
+        $users=User::all();
+        return view('admin.users.index', compact('users'));
     }
 
     
@@ -32,6 +34,6 @@ class UserController extends Controller
     {
         $user->roles()->sync($request->roles);
 
-        return redirect()->route('admin.users.edit', $user)->with('info', 'Se asigno los roles correctamente');
+        return redirect()->route('admin.users.edit', $user)->with('info', 'Se asignó los roles correctamente');
     }
 }

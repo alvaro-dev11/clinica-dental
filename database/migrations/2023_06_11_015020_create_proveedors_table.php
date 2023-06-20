@@ -12,10 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('proveedors', function (Blueprint $table) {
+            $table->engine="InnoDB";
             $table->id();
-            $table->string('name');
+            $table->string('name')->unique();
             $table->string('contacto')->unique();
-            $table->string('phone');
+            $table->string('phone')->unique();
             $table->timestamps();
         });
     }

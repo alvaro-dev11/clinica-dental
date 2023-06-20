@@ -2,12 +2,8 @@
 /* CONTACTO */
 /* INFORMACION */
 .contact-box {
-    background-color: #E6FBFF;
+    background-color: var(--bg-contacto);
 }
-
-/* .contact-content{
-    padding: 45px 100px;
-} */
 .contact-content .box {
     padding: 25px 20px;
 }

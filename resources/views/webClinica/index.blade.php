@@ -9,7 +9,7 @@
         <div class="swiper bg-slider">
             <div class="swiper-wrapper">
                 <div class="swiper-slide dark-layer">
-                    <img src="{{ asset('assets/imgs/fondo1.png') }}" alt="">
+                    <img src="{{ asset('assets/imgs/fondo1.jpg') }}" alt="">
                     <div class="text-content">
                         <h2 class="title">¡Sonríele a la vida! <span>...</span></h2>
                         <p>Te ofrecemos altos estándares de calidad y bioseguridad junto a un renombrado staff de odontólogos especializados.</p>
@@ -64,7 +64,7 @@
         </div>
         <div class="bg-slider-thumbs">
             <div class="swiper-wrapper thumbs-container">
-                <img src="{{ asset('assets/imgs/fondo1.png') }}" class="swiper-slide" alt="">
+                <img src="{{ asset('assets/imgs/fondo1.jpg') }}" class="swiper-slide" alt="">
                 <img src="{{ asset('assets/imgs/fondo2.jpg') }}" class="swiper-slide" alt="">
                 <img src="{{ asset('assets/imgs/fondo3.jpg') }}" class="swiper-slide" alt="">
                 <img src="{{ asset('assets/imgs/fondo4.jpg') }}" class="swiper-slide" alt="">
@@ -200,53 +200,17 @@ Nuestro principal propósito es el diagnóstico y tratamiento temprano de las en
             blanditiis
             fuga magnam, excepturi impedit laboriosam id enim?</span>
         <div class="grid grid-services">
-            <div class="grid-item">
-                <picture>
-                    <img src="{{ asset('assets/imgs/servicio1.png') }}">
-                    @foreach ($categories as $category)
+            @foreach ($services as $service)
+                <div class="grid-item">
+                    <picture>
+                        <img src="{{ asset('imagen/service/'. $service->image) }}">
                         <a class="boton" href="#">
                             <i class="uil uil-angle-double-right"></i>
-                            <span>{{$category->name}}</span>
+                            <span>{{ $service->name }}</span>
                         </a>
-                    @endforeach
-                </picture>
-            </div>
-            <div class="grid-item">
-                <picture>
-                    <img src="{{ asset('assets/imgs/servicio2.png') }}">
-                    <a class="boton" href="#">
-                        <i class="uil uil-angle-double-right"></i>
-                        <span>Tratamiento de caries dental</span>
-                    </a>
-                </picture>
-            </div>
-            <div class="grid-item">
-                <picture>
-                    <img src="{{ asset('assets/imgs/servicio3.png') }}">
-                    <a class="boton" href="#">
-                        <i class="uil uil-angle-double-right"></i>
-                        <span>Extracciones dentales</span>
-                    </a>
-                </picture>
-            </div>
-            <div class="grid-item">
-                <picture>
-                    <img src="{{ asset('assets/imgs/servicio4.png') }}">
-                    <a class="boton" href="#">
-                        <i class="uil uil-angle-double-right"></i>
-                        <span>Ortodoncia</span>
-                    </a>
-                </picture>
-            </div>
-            <div class="grid-item">
-                <picture>
-                    <img src="{{ asset('assets/imgs/servicio5.png') }}">
-                    <a class="boton" href="#">
-                        <i class="uil uil-angle-double-right"></i>
-                        <span>Blanqueamiento dental</span>
-                    </a>
-                </picture>
-            </div>
+                    </picture>
+                </div>
+            @endforeach
         </div>
     </section>
 
@@ -262,7 +226,8 @@ Nuestro principal propósito es el diagnóstico y tratamiento temprano de las en
                             <span class="overlay no-before"></span>
 
                             <div class="card-image card-image--size">
-                                <img src="{{ asset('assets/imgs/partner1.png') }}"  alt="" class="card-img card-img--radius">
+                                <img src="{{ asset('assets/imgs/partner1.png') }}" alt=""
+                                    class="card-img card-img--radius">
                             </div>
                         </div>
                     </div>

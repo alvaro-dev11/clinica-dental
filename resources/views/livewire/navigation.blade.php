@@ -1,4 +1,4 @@
-<nav class="bg-gray-800" x-data="{ open: false }">
+<nav x-data="{ open: false }">
     <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div class="relative flex h-16 items-center justify-between">
 
@@ -25,23 +25,37 @@
 
                 {{-- Logotipo --}}
                 <a href="/" class="flex flex-shrink-0 items-center">
-                    <img class="block h-8 w-auto lg:hidden"
-                        src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company">
-                    <img class="hidden h-8 w-auto lg:block"
-                        src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company">
+                    <img class="block h-8 w-auto lg:hidden" src="{{ asset('assets/imgs/logo.png') }}"
+                        alt="Clinica dental">
+                    <img class="hidden h-8 w-auto lg:block" src="{{ asset('assets/imgs/logo.png') }}"
+                        alt="Clinica dental">
+
                 </a>
 
                 {{-- Menu lg --}}
                 <div class="hidden sm:ml-6 sm:block">
                     <div class="flex space-x-4">
                         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                        <a href="#" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium"
-                            aria-current="page">Dashboard</a>
-                        @foreach ($categories as $category)
-                            <a href="#"
-                                class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">{{ $category->name }}</a>
-                        @endforeach
-
+                        <a href="#"
+                            class="links hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                            aria-current="page">Inicio
+                        </a>
+                        <a href="#"
+                            class="links hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                            aria-current="page">Servicios
+                        </a>
+                        <a href="#"
+                            class="links hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                            aria-current="page">Nosotros
+                        </a>
+                        <a href="#"
+                            class="links hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                            aria-current="page">Productos
+                        </a>
+                        <a href="#"
+                            class="links hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                            aria-current="page">Contacto
+                        </a>
                     </div>
                 </div>
 
@@ -67,8 +81,7 @@
                                 class="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                                 id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                                 <span class="sr-only">Open user menu</span>
-                                <img class="h-8 w-8 rounded-full" src="{{ auth()->user()->profile_photo_url }}"
-                                    alt="">
+                                <img class="h-8 w-8 rounded-full" src="{{ asset('assets/imgs/user.png') }}" alt="">
                             </button>
                         </div>
 
@@ -76,10 +89,19 @@
                             class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
                             role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
                             <!-- Active: "bg-gray-100", Not Active: "" -->
+
+                            {{-- BOTON PARA IR AL PERIFL DEL USUARIO --}}
                             <a href="{{ route('profile.edit') }}" class="block px-4 py-2 text-sm text-gray-700"
                                 role="menuitem" tabindex="-1" id="user-menu-item-0">Tu Perfil</a>
-                            <a href="{{ route('admin.home') }}" class="block px-4 py-2 text-sm text-gray-700"
-                                role="menuitem" tabindex="-1" id="user-menu-item-0">Dashboard</a>
+
+                            {{-- este boton solo se muestra a los que tienen permiso para ir al dashboard --}}
+                            @can('admin.home')
+                                {{-- BOTON PARA IR AL PERIFL DEL DASHBOARD --}}
+                                <a href="{{ route('admin.home') }}" class="block px-4 py-2 text-sm text-gray-700"
+                                    role="menuitem" tabindex="-1" id="user-menu-item-0">Dashboard</a>
+                            @endcan
+
+                            {{-- BOTON PARA CERRAR SESION --}}
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
                                 <a href="{{ route('logout') }}" class="block px-4 py-2 text-sm text-gray-700"
@@ -94,9 +116,9 @@
             @else
                 <div>
                     <a href="{{ route('login') }}"
-                        class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Login</a>
+                        class="links hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Login</a>
                     <a href="{{ route('register') }}"
-                        class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Register</a>
+                        class="links hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Register</a>
                 </div>
             @endauth
         </div>
@@ -105,12 +127,10 @@
     <!-- Menu mobile -->
     <div class="sm:hidden" x-show="open" x-on:click.away="open=false">
         <div class="space-y-1 px-2 pb-3 pt-2">
-            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-            <a href="#" class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium"
-                aria-current="page">Dashboard</a>
             @foreach ($categories as $category)
                 <a href="#"
-                    class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">{{$category->name}}</a>
+                    class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
+                    aria-current="page">{{ $category->name }}</a>
             @endforeach
 
         </div>
