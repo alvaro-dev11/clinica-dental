@@ -9,7 +9,7 @@
 <body>
     <h1>Pacientes</h1>
     @foreach ($pacientes as $paciente)
-        <p>{{$paciente}}</p>
+        <p>{{$paciente->id}} - {{$paciente->name}}</p>
     @endforeach
 </body>
 </html>
