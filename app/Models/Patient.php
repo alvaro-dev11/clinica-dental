@@ -22,8 +22,8 @@ class Patient extends Model
         return $this->hasMany(Factura::class);
     }
 
-    // relacion de uno a uno
+    // relacion de uno a mucbos
     public function historial(){
-        return $this->hasOne(Historial::class);
+        return $this->hasMany(Patient::class);
     }
 }

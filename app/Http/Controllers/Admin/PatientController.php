@@ -13,8 +13,8 @@ class PatientController extends Controller
 
         $this->middleware('can:admin.patients.index')->only('index');
         $this->middleware('can:admin.patients.create')->only('create', 'store');
-        $this->middleware('can:admin.treatments.edit')->only('edit','update');
-
+        $this->middleware('can:admin.patients.edit')->only('edit','update');
+        $this->middleware('can:admin.patients.destroy')->only('destroy');
     }
     
     /**
@@ -67,8 +67,9 @@ class PatientController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Patient $patient)
     {
-        
+        $patient->delete();
+        return redirect()->route('admin.patients.index')->with('info', 'El paciente se eliminó con éxito');
     }
 }

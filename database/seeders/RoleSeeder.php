@@ -56,6 +56,13 @@ class RoleSeeder extends Seeder
         Permission::create(['name' => 'admin.patients.edit', 'description'=>'Editar paciente'])->syncRoles([$role1,$role2]);
         Permission::create(['name' => 'admin.patients.destroy', 'description'=>'Eliminar paciente'])->syncRoles([$role1,$role2]);
 
+        
+        // El admin y el doctor podrán administrar los historiales
+        Permission::create(['name' => 'admin.historials.index', 'description'=>'Ver lista de historiales'])->syncRoles([$role2]);
+        Permission::create(['name' => 'admin.historials.create', 'description'=>'Crear nuevo historial'])->syncRoles([$role2]);
+        Permission::create(['name' => 'admin.historials.edit', 'description'=>'Editar historial'])->syncRoles([$role2]);
+
+
         // El admin y el doctor podrán administrar los tratamientos
         Permission::create(['name' => 'admin.treatments.index', 'description'=>'Ver lista de tratamientos'])->syncRoles([$role1,$role2]);
         Permission::create(['name' => 'admin.treatments.create', 'description'=>'Crear nuevo tratamiento'])->syncRoles([$role1,$role2]);

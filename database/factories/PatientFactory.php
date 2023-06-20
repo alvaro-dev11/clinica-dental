@@ -18,12 +18,11 @@ class PatientFactory extends Factory
      */
     public function definition(): array
     {
-        $name = $this->faker->unique()->sentence();
+        $name = $this->faker->unique()->name();
         return [
             'name' =>$name,
             'phone' =>$this->faker->numberBetween(100000000, 999999999),
             'email'=>$this->faker->unique()->safeEmail,
-            'historial_id'=>Historial::inRandomOrder()->value('id'),
         ];
     }
 }

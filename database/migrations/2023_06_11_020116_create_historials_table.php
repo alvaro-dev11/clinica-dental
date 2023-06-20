@@ -13,8 +13,6 @@ return new class extends Migration
     {
         Schema::create('historials', function (Blueprint $table) {
             $table->id();
-            $table->string('enfermedad');
-            $table->longText('cirugia');
 
             $table->unsignedBigInteger('patients_id');
             $table->foreign('patients_id')->references('id')->on('patients')->onDelete('cascade');

@@ -6,6 +6,7 @@ namespace Database\Seeders;
 
 use App\Models\Category;
 use App\Models\Historial;
+use App\Models\Patient;
 use App\Models\Product;
 use App\Models\Proveedor;
 use Illuminate\Database\Seeder;
@@ -34,6 +35,8 @@ class DatabaseSeeder extends Seeder
         $this->call(UserSeeder::class);
         Category::factory(4)->create();
         Proveedor::factory(4)->create();
+        Patient::factory(100)->create();
+        $this->call(TreatmentSeeder::class);
         // $this->call(ProductSeeder::class);
     }
 }

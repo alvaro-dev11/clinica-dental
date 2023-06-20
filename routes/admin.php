@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\PatientController;
+use App\Http\Controllers\Admin\HistorialController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProveedorController;
 use App\Http\Controllers\Admin\TreatmentController;
@@ -31,6 +32,9 @@ Route::resource('products', ProductController::class)->names('admin.products');
 
 // Ruta para los pacientes
 Route::resource('patients', PatientController::class)->names('admin.patients');
+
+// Ruta para los historiales
+Route::resource('historials', HistorialController::class)->names('admin.historials');
 
 // Ruta para los tratamientos
 Route::resource('treatments', TreatmentController::class)->names('admin.treatments');

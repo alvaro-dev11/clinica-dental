@@ -73,6 +73,8 @@
                                     </form>
                                 @endcan
                             </td>
+
+                       
                         </tr>
                     @endforeach
                 </tbody>

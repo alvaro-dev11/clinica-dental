@@ -14,8 +14,8 @@ class Treatment extends Model
         'price'
     ];
 
-     // relacion de uno a uno
+     // relacion de uno a muchos
      public function historial(){
-        return $this->hasOne(Historial::class);
+        return $this->hasMany(Treatment::class);
     }
 }
