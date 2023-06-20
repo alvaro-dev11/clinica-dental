@@ -24,7 +24,7 @@ class ProductFactory extends Factory
             'name' => $name,
             'slug' => Str::slug($name),
             'description' => $this->faker->text(255),
-            'status' => $this->faker->randomElement([0, 1]),
+            'status' => $this->faker->randomElement(['0', '1']),
             // 'category_id' => Category::inRandomOrder()->first()->id,
             'category_id'=>Category::inRandomOrder()->value('id'),
             'proveedor_id'=>Proveedor::inRandomOrder()->value('id'),
