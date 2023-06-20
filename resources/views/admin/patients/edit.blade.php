@@ -20,7 +20,7 @@
             {!! Form::model($patient, ['route' => ['admin.patients.update', $patient], 'method' => 'put']) !!}
             <div class="form-group">
                 {!! Form::label('name', 'Nombre') !!}
-                {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre del tratamiento']) !!}
+                {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre del paciente']) !!}
 
                 @error('name')
                     <span class="text-danger">{{ $message }}</span>
@@ -28,15 +28,23 @@
             </div>
 
             <div class="form-group">
-                {!! Form::label('price', 'Precio') !!}
-                {!! Form::number('price', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el precio del tratamiento']) !!}
+                {!! Form::label('phone', 'Telefono') !!}
+                {!! Form::text('phone', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el telefono del paciente']) !!}
 
                 @error('price')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
 
-            {!! Form::submit('Actualizar tratamiento', ['class' => 'btn btn-success']) !!}
+            <div class="form-group">
+                {!! Form::label('email', 'Email') !!}
+                {!! Form::text('email', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el email del paciente']) !!}
+
+                @error('price')
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
+            </div>
+            {!! Form::submit('Actualizar paciente', ['class' => 'btn btn-success']) !!}
             {!! Form::close() !!}
         </div>
     </div>

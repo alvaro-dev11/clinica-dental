@@ -70,10 +70,13 @@ class PatientController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Patient $patient)
     {
-        
+        $patient->delete();
+
+        return redirect()->route('admin.patients.index')->with('info','El paciente se eliminó con éxito');
     }
+    //
     public function reportePDF(){
         $pacientes=Patient::all();
         $pdf = Pdf::loadView('paciente.paciente', compact('pacientes'));
@@ -88,5 +91,9 @@ class PatientController extends Controller
                     ->get();
 
         return view('search.index', compact('cita'));
+    }
+
+    public function agendarCita(Request $request){
+
     }
 }
