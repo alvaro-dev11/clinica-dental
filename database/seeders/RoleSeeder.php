@@ -51,10 +51,10 @@ class RoleSeeder extends Seeder
         Permission::create(['name' => 'admin.products.destroy', 'description'=>'Eliminar producto'])->assignRole([$role1]);
 
         // El admin y el doctor podrán administrar los pacientes
-        Permission::create(['name' => 'admin.patient.index', 'description'=>'Ver lista de pacientes'])->syncRoles([$role1,$role2]);
-        Permission::create(['name' => 'admin.patient.create', 'description'=>'Crear nuevo paciente'])->syncRoles([$role1,$role2]);
-        Permission::create(['name' => 'admin.patient.edit', 'description'=>'Editar paciente'])->syncRoles([$role1,$role2]);
-        Permission::create(['name' => 'admin.patient.destroy', 'description'=>'Eliminar paciente'])->syncRoles([$role1,$role2]);
+        Permission::create(['name' => 'admin.patients.index', 'description'=>'Ver lista de pacientes'])->syncRoles([$role1,$role2]);
+        Permission::create(['name' => 'admin.patients.create', 'description'=>'Crear nuevo paciente'])->syncRoles([$role1,$role2]);
+        Permission::create(['name' => 'admin.patients.edit', 'description'=>'Editar paciente'])->syncRoles([$role1,$role2]);
+        Permission::create(['name' => 'admin.patients.destroy', 'description'=>'Eliminar paciente'])->syncRoles([$role1,$role2]);
 
         // El admin y el doctor podrán administrar los tratamientos
         Permission::create(['name' => 'admin.treatments.index', 'description'=>'Ver lista de tratamientos'])->syncRoles([$role1,$role2]);

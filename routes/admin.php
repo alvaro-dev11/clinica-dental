@@ -50,3 +50,4 @@ Route::resource('service', ServiceController::class)->names('admin.service');
 
 // Ruta para los odontologos
 Route::resource('odontologo', OdontologoController::class)->names('admin.odontologo');
+

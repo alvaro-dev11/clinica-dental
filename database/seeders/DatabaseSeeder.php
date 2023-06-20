@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use App\Models\Category;
+use App\Models\Historial;
 use App\Models\Product;
 use App\Models\Proveedor;
 use Illuminate\Database\Seeder;
