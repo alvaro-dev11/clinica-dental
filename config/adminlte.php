@@ -341,7 +341,14 @@ return [
             'text' => 'Proveedores',
             'route'  => 'admin.proveedores.index',
             'icon' => 'fas fa-user-friends fa-fw',
-            'can'=>'admin.proveedores.index'
+            'can'=>'admin.proveedores.index',
+            
+        ],
+        [
+            'text' => 'Odontologo',
+            'route'  => 'admin.odontologo.index',
+            'icon' => 'fab fa-fw fa-buffer',
+            'can'=>'admin.odontologo.index'
         ],
         [
             'text' => 'Compras',
