@@ -6,12 +6,15 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\HomeController;
+use App\Http\Controllers\Admin\OdontologoController;
 use App\Http\Controllers\Admin\PatientController;
 use App\Http\Controllers\Admin\HistorialController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProveedorController;
+use App\Http\Controllers\Admin\PurchaseController;
 use App\Http\Controllers\Admin\TreatmentController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\ServiceController;
 
 Route::get('', [HomeController::class, 'index'])->middleware('can:admin.home')->name('admin.home');
 
@@ -22,6 +25,7 @@ Route::resource('users', UserController::class)->only(['index', 'edit', 'update'
 Route::resource('roles', RoleController::class)->names('admin.roles');
 
 // Ruta para las categorias
+// Usando todos los métodos excepto la de show
 Route::resource('categories', CategoryController::class)->except('show')->names('admin.categories');
 
 // Ruta para los proveedores
@@ -39,4 +43,15 @@ Route::resource('historials', HistorialController::class)->names('admin.historia
 // Ruta para los tratamientos
 Route::resource('treatments', TreatmentController::class)->names('admin.treatments');
 
+// Ruta para las compras
+Route::resource('purchase', PurchaseController::class)->names('admin.purchase');
+
+// Ruta para cambiar el estado de una compra
+Route::post('cambiar-estado/{id}', [PurchaseController::class, 'cambiarEstado'])->name('admin.purchase.cambiar-estado');
+
+// Ruta para los servicios
+Route::resource('service', ServiceController::class)->names('admin.service');
+
+// Ruta para los odontologos
+Route::resource('odontologo', OdontologoController::class)->names('admin.odontologo');
 

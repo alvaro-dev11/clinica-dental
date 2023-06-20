@@ -68,5 +68,24 @@ class RoleSeeder extends Seeder
         Permission::create(['name' => 'admin.treatments.create', 'description'=>'Crear nuevo tratamiento'])->syncRoles([$role1,$role2]);
         Permission::create(['name' => 'admin.treatments.edit', 'description'=>'Editar tratamiento'])->syncRoles([$role1,$role2]);
         Permission::create(['name' => 'admin.treatments.destroy', 'description'=>'Eliminar tratamiento'])->syncRoles([$role1,$role2]);
+
+        // El admin podrá administrar las compras
+        Permission::create(['name' => 'admin.purchase.index', 'description'=>'Ver lista de compras'])->syncRoles([$role1]);
+        Permission::create(['name' => 'admin.purchase.create', 'description'=>'Crear nueva compra'])->syncRoles([$role1]);
+        Permission::create(['name' => 'admin.purchase.edit', 'description'=>'Editar compra'])->syncRoles([$role1]);
+
+        // El admin podrá administrar los servicios
+        Permission::create(['name' => 'admin.service.index', 'description'=>'Ver lista de servicios'])->assignRole([$role1]);
+        Permission::create(['name' => 'admin.service.create', 'description'=>'Crear nuevo servicio'])->assignRole([$role1]);
+        Permission::create(['name' => 'admin.service.show', 'description'=>'Ver servicio'])->assignRole([$role1]);
+        Permission::create(['name' => 'admin.service.edit', 'description'=>'Editar servicio'])->assignRole([$role1]);
+        Permission::create(['name' => 'admin.service.destroy', 'description'=>'Eliminar servicio'])->assignRole([$role1]);
+
+        // El admin podrá administrar los odontologos
+        Permission::create(['name' => 'admin.odontologo.index', 'description'=>'Ver lista de odontólogos'])->assignRole([$role1]);
+        Permission::create(['name' => 'admin.odontologo.create', 'description'=>'Crear nuevo odontólogo'])->assignRole([$role1]);
+        Permission::create(['name' => 'admin.odontologo.show', 'description'=>'Ver odontólogo'])->assignRole([$role1]);
+        Permission::create(['name' => 'admin.odontologo.edit', 'description'=>'Editar odontólogo'])->assignRole([$role1]);
+        Permission::create(['name' => 'admin.odontologo.destroy', 'description'=>'Eliminar odontólogo'])->assignRole([$role1]);
     }
 }

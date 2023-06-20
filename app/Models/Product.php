@@ -12,21 +12,29 @@ class Product extends Model
 {
     use HasFactory;
 
-    protected $fillable=['name','slug','description','status','image','category_id','proveedor_id'];
+    protected $fillable = [
+        'name',
+        'slug',
+        'description',
+        'stock',
+        'status',
+        'image',
+        'category_id',
+        'proveedor_id'
+    ];
 
-    // relacion de uno a muchos inversa
-    // public function category(){
-    //     return $this->belongsTo(Category::class);
-    // }
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 
-    public function category(){
+    public function category()
+    {
         return $this->hasOne(Category::class, 'id', 'category_id');
     }
 
-    // public function proveedor(){
-    //     return $this->belongsTo(Proveedor::class);
-    // }
-    public function proveedor(){
-        return $this->hasOne(Proveedor::class, 'id', 'proveedor_id');
+    public function proveedor()
+    {
+        return $this->belongsTo(Proveedor::class);
     }
 }

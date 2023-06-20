@@ -328,7 +328,7 @@ return [
             'text'        => 'Roles',
             'route'         => 'admin.roles.index',
             'icon'        => 'fas fa-users-cog fa-fw',
-            // 'can'=>'admin.roles.index'
+            'can'=>'admin.roles.index'
         ],
         ['header' => 'OPCIONES DEL PACIENTE'],
         [
@@ -352,10 +352,35 @@ return [
             'can'=>'admin.categories.index'
         ],
         [
+            'text' => 'Pacientes',
+            'route'  => 'admin.patients.index',
+            'icon' => 'fas fa-user-friends fa-fw',
+            'can'=>'admin.patients.index'
+        ],
+        [
             'text' => 'Proveedores',
             'route'  => 'admin.proveedores.index',
             'icon' => 'fas fa-user-friends fa-fw',
-            'can'=>'admin.proveedores.index'
+            'can'=>'admin.proveedores.index',
+            
+        ],
+        [
+            'text' => 'Odontologo',
+            'route'  => 'admin.odontologo.index',
+            'icon' => 'fab fa-fw fa-buffer',
+            'can'=>'admin.odontologo.index'
+        ],
+        [
+            'text' => 'Compras',
+            'route'  => 'admin.purchase.index',
+            'icon' => 'fas fa-store fa-fw',
+            'can'=>'admin.purchase.index'
+        ],
+        [
+            'text' => 'Servicios',
+            'route'  => 'admin.service.index',
+            'icon' => 'fas fa-praying-hands fa-fw',
+            'can'=>'admin.service.index'
         ],
         // [
         //     'text'    => 'multilevel',

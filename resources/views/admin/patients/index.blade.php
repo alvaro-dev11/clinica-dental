@@ -35,6 +35,7 @@
                         <th>Phone</th>
                         <th>Email</th>
                         @if ('admin.patients.index')
+                            <th class="text-uppercase">PDF</th>
                             <th class="text-uppercase">Editar</th>
                             <th class="text-uppercase">Eliminar</th>
                         @else
@@ -54,7 +55,12 @@
                             <td>{{ $patient->phone }}</td>
                             <td>{{ $patient->email }}</td>
 
-
+                            <td width="10px" class="text-center">
+                                @can('admin.patients.edit')
+                                    <a href="{{ route('paciente.pdf', $patient) }}" class="btn btn-success btn-sm"><i class="fa-light fa-file-pdf"></i>
+                                    </a>
+                                @endcan
+                            </td>
                             <td width="10px" class="text-center">
                                 @can('admin.patients.edit')
                                     <a href="{{ route('admin.patients.edit', $patient) }}" class="btn btn-warning btn-sm"><i

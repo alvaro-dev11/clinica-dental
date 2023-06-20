@@ -7,14 +7,17 @@
     font-family: 'Montserrat', sans-serif;
     text-decoration: none;
     list-style: none;
+    scroll-padding-top: 2rem;
+    scroll-behavior: smooth;
 }
 
 /* =============== CSS variables =============== */
 :root {
+
     --white-color: #fff;
     --dark-color: #222;
     --body-bg-color: #fff;
-    --section-bg-color: #EAEBED;
+    
     --navigation-item-hover-color: #3b5378;
 
     --text-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
@@ -26,7 +29,10 @@
 
     /* Light Mode */
     --bg-icon: #EAEBED;
+    --bg-nav:#fff;
+    --section-bg-color: #EAEBED;
     --bg-vector: #2E424D;
+    --bg-contacto:#E6FBFF;
     --color-primario: #5689C0;
     --color-secundario: #0B517D;
     --color-terciario: #4FD1F3;

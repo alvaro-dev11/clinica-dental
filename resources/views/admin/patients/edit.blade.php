@@ -28,25 +28,15 @@
             </div>
 
             <div class="form-group">
-                {!! Form::label('phone', 'Phone') !!}
-                {!! Form::text('phone', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el telefono del paciente']) !!}
-
-                @error('phone')
-                    <span class="text-danger">{{ $message }}</span>
-                @enderror
-            </div>
-
-            <div class="form-group">
-                {!! Form::label('email', 'Email') !!}
-                {!! Form::text('email', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el email del paciente']) !!}
+                {!! Form::label('price', 'Precio') !!}
+                {!! Form::number('price', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el precio del tratamiento']) !!}
 
                 @error('email')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
 
-
-            {!! Form::submit('Actualizar paciente', ['class' => 'btn btn-success']) !!}
+            {!! Form::submit('Actualizar tratamiento', ['class' => 'btn btn-success']) !!}
             {!! Form::close() !!}
         </div>
     </div>

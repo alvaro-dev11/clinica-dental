@@ -17,14 +17,15 @@ return new class extends Migration
             $table->string('name');
             $table->string('slug');
             $table->longText('description')->nullable(); // Este campo puede ser nulo
+            $table->integer('stock')->default(0);
             $table->enum('status',[0,1])->default(1);
-            $table->string('image');
+            $table->string('image')->nullable(); // Este campo puede ser nulo
 
             $table->unsignedBigInteger('category_id')->unsigned();
             $table->unsignedBigInteger('proveedor_id')->unsigned();
 
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
-            $table->foreign('proveedor_id')->references('id')->on('proveedors')->onDelete('cascade');
+            $table->foreign('proveedor_id')->references('id')->on('proveedors');
 
             $table->timestamps();
         });

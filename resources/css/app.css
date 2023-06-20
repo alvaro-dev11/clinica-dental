@@ -1,3 +1,12 @@
+@import url(./main.css);
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+nav{
+    background-color: var(--bg-nav);
+}
+nav .links{
+    color: var(--nav-color-link);
+}
