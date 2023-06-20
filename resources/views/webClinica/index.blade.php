@@ -2,18 +2,17 @@
     <!-- HOME LANDIGE PAGE -->
     <section class="home">
         <div class="media-icons">
-            <a href="#"><i class="uil uil-facebook-f"></i></a>
-            <a href="#"><i class="uil uil-instagram"></i></a>
-            <a href="#"><i class="uil uil-twitter"></i></a>
+            <a href="https://www.youtube.com/watch?v=-RJSbO8UZVY&list=RD-RJSbO8UZVY&start_radio=1"><i class="uil uil-facebook-f"></i></a>
+            <a href="https://www.youtube.com/watch?v=-RJSbO8UZVY&list=RD-RJSbO8UZVY&start_radio=1"><i class="uil uil-instagram"></i></a>
+            <a href="https://www.youtube.com/watch?v=-RJSbO8UZVY&list=RD-RJSbO8UZVY&start_radio=1"><i class="uil uil-twitter"></i></a>
         </div>
         <div class="swiper bg-slider">
             <div class="swiper-wrapper">
                 <div class="swiper-slide dark-layer">
                     <img src="{{ asset('assets/imgs/fondo1.png') }}" alt="">
                     <div class="text-content">
-                        <h2 class="title">Eslogan <span>Texto...</span></h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic possimus totam similique
-                            quisquam cupiditate sunt numquam nihil nisi assumenda eveniet.</p>
+                        <h2 class="title">¡Sonríele a la vida! <span>...</span></h2>
+                        <p>Te ofrecemos altos estándares de calidad y bioseguridad junto a un renombrado staff de odontólogos especializados.</p>
                         <div class="botones">
                             <a href="#" class="read-more"><i class="uil uil-user-arrows"></i> Nuestros servicios
                                 <i class="uil uil-arrow-right arrow"></i></a>
@@ -25,9 +24,8 @@
                 <div class="swiper-slide dark-layer">
                     <img src="{{ asset('assets/imgs/fondo2.jpg') }}" alt="">
                     <div class="text-content">
-                        <h2 class="title">Eslogan <span>Texto...</span></h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic possimus totam similique
-                            quisquam cupiditate sunt numquam nihil nisi assumenda eveniet.</p>
+                        <h2 class="title">¡Sonríele con libertad! <span>...</span></h2>
+                        <p>Es más sencillo obtener lo que deseas con una sonrisa que con la punta de una espada.</p>
                         <div class="botones">
                             <a href="#" class="read-more"><i class="uil uil-user-arrows"></i> Nuestros servicios
                                 <i class="uil uil-arrow-right arrow"></i></a>
@@ -39,9 +37,8 @@
                 <div class="swiper-slide dark-layer">
                     <img src="{{ asset('assets/imgs/fondo3.jpg') }}" alt="">
                     <div class="text-content">
-                        <h2 class="title">Eslogan <span>Texto...</span></h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic possimus totam similique
-                            quisquam cupiditate sunt numquam nihil nisi assumenda eveniet.</p>
+                        <h2 class="title">La paz comienza con una sonrisa.  <span></span></h2>
+                        <p>La capacidad que tiene una frase motivacional no puede subestimarse, sobre todo cuando conoces muy bien a tus pacientes y sabes exactamente que necesitan..</p>
                         <div class="botones">
                             <a href="#" class="read-more"><i class="uil uil-user-arrows"></i> Nuestros servicios
                                 <i class="uil uil-arrow-right arrow"></i></a>
@@ -53,9 +50,8 @@
                 <div class="swiper-slide dark-layer">
                     <img src="{{ asset('assets/imgs/fondo4.jpg') }}" alt="">
                     <div class="text-content">
-                        <h2 class="title">Eslogan <span>Texto...</span></h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic possimus totam similique
-                            quisquam cupiditate sunt numquam nihil nisi assumenda eveniet.</p>
+                        <h2 class="title">Una sonrisa es un pasaporte que abre todos los ángulos. <span>...</span></h2>
+                        <p>Sabemos la importancia que tiene que el paciente visite frecuentemente al dentista ya que su salud dental .</p>
                         <div class="botones">
                             <a href="#" class="read-more"><i class="uil uil-user-arrows"></i> Nuestros servicios
                                 <i class="uil uil-arrow-right arrow"></i></a>
@@ -82,10 +78,9 @@
         <div class="about-box">
             <div class="box">
                 <h2>Somos una empresa con mas de 30 años de experiencia...</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur aut quod ut nihil nostrum
-                    tempore earum delectus. Veritatis tempore assumenda nihil necessitatibus possimus nisi officiis
-                    quasi, quas tempora laboriosam eos. Voluptas quis sint saepe maxime ut impedit quam nemo iste,
-                    tenetur deserunt, aut cupiditate incidunt fuga quisquam hic illo eos?</p>
+                <p>Creada con altos estándares de calidad y protocolos de bioseguridad para brindar el mejor servicio con un Staff de especialistas certificados en el manejo de tratamientos de alta complejidad en Estética dental, Ortodoncia e Implantes.
+
+Nuestro principal propósito es el diagnóstico y tratamiento temprano de las enfermedades bucodentales que pueden perjudicar la buena alimentación, nutrición y calidad de vida.</p>
                 <a href="#" class="read-more"><i class="uil uil-users-alt"></i> Conoce mas <i
                         class="uil uil-arrow-right arrow"></i></a>
 
@@ -106,8 +101,8 @@
                         </div>
 
                         <div class="card-content">
-                            <h2 class="name">Nombre completo</h2>
-                            <p class="description">Especialidad <strong>(años) </strong><span>de experiencia</span></p>
+                            <h2 class="name">Alex Barrera</h2>
+                            <p class="description">Dentista <strong>(3 años) </strong><span>de experiencia</span></p>
                             <a href="#"><i class="uil uil-mobile-android-alt"></i> +51 999999999</a>
                         </div>
                     </div>
@@ -121,8 +116,8 @@
                         </div>
 
                         <div class="card-content">
-                            <h2 class="name">Nombre completo</h2>
-                            <p class="description">Especialidad <strong>(años) </strong><span>de experiencia</span></p>
+                            <h2 class="name">Tania Martinez</h2>
+                            <p class="description">Cirujana D. <strong>(4 años) </strong><span>de esperiencia</span></p>
                             <a href="#"><i class="uil uil-mobile-android-alt"></i> +51 999999999</a>
                         </div>
                     </div>
@@ -135,8 +130,8 @@
                             </div>
                         </div>
                         <div class="card-content">
-                            <h2 class="name">Nombre completo</h2>
-                            <p class="description">Especialidad <strong>(años) </strong><span>de experiencia</span></p>
+                            <h2 class="name">Hector Park</h2>
+                            <p class="description">Dentista <strong>(3 años) </strong><span>de experiencia</span></p>
                             <a href="#"><i class="uil uil-mobile-android-alt"></i> +51 999999999</a>
                         </div>
                     </div>
@@ -257,7 +252,7 @@
 
     <!-- PARTNERS -->
     <section class="partners section">
-        <h1 class="titulo">Partners</h1>
+        <h1 class="titulo">SOCIOS</h1>
         <!-- PARTNERS CARDS -->
         <div class="slide-container swiper">
             <div class="slide-content">
