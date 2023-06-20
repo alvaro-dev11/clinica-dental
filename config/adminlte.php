@@ -338,12 +338,6 @@ return [
             'can'=>'admin.categories.index'
         ],
         [
-            'text' => 'Pacientes',
-            'route'  => 'admin.patients.index',
-            'icon' => 'fas fa-user-friends fa-fw',
-            'can'=>'admin.patients.index'
-        ],
-        [
             'text' => 'Proveedores',
             'route'  => 'admin.proveedores.index',
             'icon' => 'fas fa-user-friends fa-fw',
