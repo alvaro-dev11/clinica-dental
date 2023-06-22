@@ -14,6 +14,8 @@ use App\Http\Controllers\Admin\PurchaseController;
 use App\Http\Controllers\Admin\TreatmentController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\CitaController;
+use App\Models\Cita;
 
 Route::get('', [HomeController::class, 'index'])->middleware('can:admin.home')->name('admin.home');
 
@@ -51,3 +53,6 @@ Route::resource('service', ServiceController::class)->names('admin.service');
 // Ruta para los odontologos
 Route::resource('odontologo', OdontologoController::class)->names('admin.odontologo');
 
+//Ruta para las citas
+
+Route::get('cita', [CitaController::class, 'index'])->name('admin.citas.index');

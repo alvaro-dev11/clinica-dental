@@ -28,6 +28,7 @@ class PatientController extends Controller
         $patients = Patient::all();
         return view('admin.patients.index', compact('patients'));
     }
+    
 
     /**
      * Show the form for creating a new resource.
@@ -36,6 +37,7 @@ class PatientController extends Controller
     {
         return view('admin.patients.create');
     }
+    
 
     
     public function store(PatientRequest $request)
