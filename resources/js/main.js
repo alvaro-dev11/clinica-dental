@@ -7,7 +7,7 @@ $(document).ready(function () {
     $(profile).click(function () {
         $(menu).toggleClass('active');
     });
-    $(body).click(function (e) { 
+    $(body).click(function (e) {
         // Si el clic fue en un elemento que no es hijo de la etiqueta imgBox
         if (!$(e.target).closest('.imgBox').length) {
             $(menu).removeClass('active');
@@ -15,51 +15,68 @@ $(document).ready(function () {
     });
 
     //Menu toggle
-    const menuToggle=document.querySelector('.menuToggle');
-    const navMenu=document.querySelector('.nav');
-    menuToggle.addEventListener('click',showMenu);
+    //input de tipo checkbox
+    const swictherTheme = document.querySelector('.check');
 
-    function showMenu(){
-        navMenu.classList.toggle('show');
-        if (menuToggle.className === 'bx bx-menu menuToggle') {
-            menuToggle.className = 'bx bx-x menuToggle';
-        } else {
-            menuToggle.className = 'bx bx-menu menuToggle';
-        }
+    //raiz del documento
+    const root = document.documentElement;
+
+    if (root.getAttribute('data-theme') === 'dark') {
+        swictherTheme.checked = true;
+    }
+
+    //ejecutando un evento cuando se hizo click en checkbox
+    swictherTheme.addEventListener('click', toggleTheme);
+
+    //funcion para cambiar al tema dark o light
+    function toggleTheme() {
+        const setTheme = swictherTheme.checked ? 'dark' : 'light';
+
+        root.setAttribute('data-theme', setTheme);
+
+        //usando el localstorage para guardar los cambios de la pagina al recargarla
+
+        //almacenando una variable theme en el localstorage
+        localStorage.setItem('theme', setTheme);
     }
 
     //Theme mode
-    const btnMode=document.querySelector('.btn-mode');
-    const iconMode=document.querySelector('.bx-sun');
-    // <i class='bx bxs-moon'></i>
-    btnMode.addEventListener('click',changeThemeMode);
+    const toggle = document.querySelector('#toggle');
+    const sunIcon = document.querySelector('.toggle .bxs-sun');
+    const moonIcon = document.querySelector('.toggle .bx-moon');
+    toggle.addEventListener('change', changeThemeMode);
 
-    function changeThemeMode(){
-        // if(iconMode.className === "bx-sun"){
-        //     iconMode.className = "bx-sun";
-        // }else{
-        //     iconMode.className = "bxs-moon";
-        // }
+    function changeThemeMode() {
+        sunIcon.className = sunIcon.className == 'bx bxs-sun' ? 'bx bx-sun' : 'bx bxs-sun';
+        moonIcon.className = moonIcon.className == 'bx bxs-moon' ? 'bx bx-moon' : 'bx bxs-moon';
     }
 
     // Responsive navigation menu toggle
     const menuBtn = document.querySelector(".nav-menu-btn");
     const closeBtn = document.querySelector(".nav-close-btn");
     const navigation = document.querySelector(".navigation");
-    
 
-    $(menuBtn).click(function () { 
+
+    $(menuBtn).click(function () {
         $(navigation).addClass("active");
     });
 
-    $(closeBtn).click(function () { 
+    $(closeBtn).click(function () {
         $(navigation).removeClass('active');
     });
 
-    $(body).click(function (e) { 
+    $(body).click(function (e) {
         // Si el clic fue en un elemento que no es hijo de la etiqueta nav-menu-btn
         if (!$(e.target).closest('.nav-menu-btn').length) {
             $(navigation).removeClass('active');
         }
     });
+
+    //Navbar menu mobile
+    const navMenu=document.querySelector('.menuToggle');
+    const navItems=document.querySelector('.nav');
+    navMenu.addEventListener('click',showMenu);
+    function showMenu(){
+        navItems.classList.toggle('show');
+    }
 });

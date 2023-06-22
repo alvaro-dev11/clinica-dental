@@ -10,13 +10,13 @@
     <div class="card">
         <div class="card-body">
             {!! Form::open(['route' => 'admin.citas.store']) !!}
-            <div class="form-group">
+            {{-- <div class="form-group">
                 {!! Form::label('id', 'ID') !!}
                 {!! Form::text('id', null, [
                     'class' => 'form-control',
                     'placeholder' => 'Ingrese el id',
                     ]) !!}
-            </div>
+            </div> --}}
             <div class="form-group">
                 {!! Form::label('fecha', 'Fecha') !!}
                 {!! Form::date('fecha', null, [

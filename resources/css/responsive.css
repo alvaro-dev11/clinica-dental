@@ -78,7 +78,7 @@
 @media (max-width: 768px) {
     nav {
         height: 60px;
-        padding: 10px 50px;
+        padding: 10px 25px;
     }
     .nav {
         gap: 1rem;
@@ -145,7 +145,7 @@
         transition: 0.3s ease;
     }
 
-    .navigation {
+    /* .navigation {
         z-index: 99999;
         position: fixed;
         width: 100%;
@@ -207,7 +207,7 @@
         display: inline-block;
         font-size: 1.3em;
         margin-right: 5px;
-    }
+    } */
 
     .swiper-slide .text-content .botones .read-more {
         font-size: 0.9em;
@@ -245,7 +245,7 @@
         bottom: 0;
         max-width: 400px;
         width: 100%;
-        background: #222;
+        background: var(--white-color);
         flex-direction: column;
         align-items: center;
         padding: 2rem;
@@ -302,9 +302,9 @@
         margin-top: 0;
     }
 
-    .navigation .nav-items a {
+    /* .navigation .nav-items a {
         margin: 15px 40px;
-    }
+    } */
 
 }
 

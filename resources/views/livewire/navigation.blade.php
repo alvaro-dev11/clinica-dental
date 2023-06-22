@@ -23,6 +23,14 @@
             </li>
         </ul>
     </div>
+    <div class="profile">
+        <input type="checkbox" id="toggle" class="check">
+        <label class="toggle" for="toggle">
+            <i class='bx bx-sun'></i>
+            <i class="bx bx-moon"></i>
+            <span class="ball"></span>
+        </label>
+    </div>
     @auth
         <div class="profile">
             {{-- @foreach ($users as $user) --}}
@@ -66,12 +74,5 @@
                 <a href="{{ route('register') }}" class="btn btn-register">Registrarse</a>
             </div>
         @endauth
-        <div class="profile">
-            <label class="toggle" for="toggle">
-                <i class='bx bx-sun'></i>
-                <i class="bx bx-moon"></i>
-                <span class="ball"></span>
-            </label>
-        </div>
     </div>
 </nav>

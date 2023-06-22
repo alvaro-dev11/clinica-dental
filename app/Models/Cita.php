@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cita extends Model
 {
+
+    use HasFactory;
+    
     protected $fillable = [
         'fecha',
         'hora',

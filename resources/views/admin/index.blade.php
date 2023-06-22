@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-    <p>Welcome to this beautiful admin panel.</p>
+    Panel administrativo para la gestión de la clinica dental.
 @stop
 
 @section('css')

@@ -80,12 +80,13 @@ class RoleSeeder extends Seeder
         Permission::create(['name' => 'admin.odontologo.show', 'description'=>'Ver odontólogo'])->assignRole([$role1]);
         Permission::create(['name' => 'admin.odontologo.edit', 'description'=>'Editar odontólogo'])->assignRole([$role1]);
         Permission::create(['name' => 'admin.odontologo.destroy', 'description'=>'Eliminar odontólogo'])->assignRole([$role1]);
+
         //El admin podrá administrar las Citas
-        Permission::create(['name' => 'admin.cita.index', 'description'=>'Ver lista de citas'])->assignRole([$role1]);
-        Permission::create(['name' => 'admin.cita.create', 'description'=>'Crear nueva cita '])->assignRole([$role1]);
-        Permission::create(['name' => 'admin.cita.show', 'description'=>'Ver cita'])->assignRole([$role1]);
-        Permission::create(['name' => 'admin.cita.edit', 'description'=>'Editar cita'])->assignRole([$role1]);
-        Permission::create(['name' => 'admin.cita.destroy', 'description'=>'Eliminar cita'])->assignRole([$role1]);
+        Permission::create(['name' => 'admin.citas.index', 'description'=>'Ver lista de citas'])->assignRole([$role1]);
+        Permission::create(['name' => 'admin.citas.create', 'description'=>'Crear nueva cita '])->assignRole([$role1]);
+        Permission::create(['name' => 'admin.citas.show', 'description'=>'Ver cita'])->assignRole([$role1]);
+        Permission::create(['name' => 'admin.citas.edit', 'description'=>'Editar cita'])->assignRole([$role1]);
+        Permission::create(['name' => 'admin.citas.destroy', 'description'=>'Eliminar cita'])->assignRole([$role1]);
 
     }
 }
