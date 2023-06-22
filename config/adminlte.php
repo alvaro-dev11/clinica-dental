@@ -356,6 +356,14 @@ return [
             'icon' => 'fas fa-store fa-fw',
             'can'=>'admin.purchase.index'
         ],
+        
+        [
+            'text' => 'Citas',
+            'route'  => 'admin.citas.index',
+            'icon' => 'fas fa-user-friends fa-fw',
+            'can'=>'admin.citas.index',
+        ],
+        
         [
             'text' => 'Servicios',
             'route'  => 'admin.service.index',

@@ -5,38 +5,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Formulario de Paciente</title>
+
+    <style>
+        .container {
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid blueviolet;
+            border-radius: 8px;
+            background-color: #A0ADDA; /*xd de color de fondo */
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            border: 1px solid black ;
+            border-radius: 8px;
+            padding: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 10px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px 2px;
+            font-size: 18px;
+        }
+
+    </style>
 </head>
 
 <body>
     <div class="container">
-        {{-- <div class="mb-3 row">
-            <div class="col-8">
-                <img src="{{ asset('assets/imgs/logo.png') }}">
-            </div>
-        </div> --}}
+        <h1>Formulario de Paciente</h1>
+        <form action="{{ route('admin.patients.store') }}" method="POST">
+            @csrf
 
-        <h1 class="text-center">Detalles del paciente</h1>
-        @foreach ($pacientes as $paciente)
-            <div class="mb-3 row">
-                <div class="col-8">
-                    <strong>Nombre:</strong>
-                    <span>{{ $paciente->name }}</span>
-                </div>
+            <div class="form-group">
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" name="name" required>
             </div>
-            <div class="mb-3 row">
-                <div class="col-8">
-                    <strong>Teléfono:</strong>
-                    <span>{{ $paciente->phone }}</span>
-                </div>
+
+            <div class="form-group">
+                <label for="email">Correo electrónico:</label>
+                <input type="text" id="email" name="email" required>
             </div>
-            <div class="mb-3 row">
-                <div class="col-8">
-                    <strong>Email:</strong>
-                    <span>{{ $paciente->email }}</span>
-                </div>
+
+            <div class="form-group">
+                <label for="phone">Teléfono:</label>
+                <input type="text" id="phone" name="phone" required>
             </div>
-        @endforeach
+
+        </form>
     </div>
 </body>
 
