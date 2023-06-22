@@ -315,7 +315,7 @@ header .navbar {
 
 /* =============== Media icons =============== */
 .media-icons {
-    z-index: 999;
+    z-index: 888;
     position: absolute;
     display: flex;
     flex-direction: column;
